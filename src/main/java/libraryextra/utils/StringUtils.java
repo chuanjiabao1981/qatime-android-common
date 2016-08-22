@@ -1,5 +1,11 @@
 package libraryextra.utils;
 
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.SpannedString;
+import android.text.style.AbsoluteSizeSpan;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -210,4 +216,20 @@ public class StringUtils {
         return result;
     }
 
+    /**
+     * 获取带属性的字符串
+     * @param context
+     * @param resource
+     * @return
+     */
+    public static SpannedString getSpannedString(Context context,int resource) {
+        // 新建一个可以添加属性的文本对象
+        SpannableString ss = new SpannableString(context.getResources().getString(resource));
+        // 新建一个属性对象,设置文字的大小
+        AbsoluteSizeSpan ass = new AbsoluteSizeSpan(10, true);
+        // 附加属性到文本
+        ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        // 设置hint
+        return new SpannedString(ss);
+    }
 }
