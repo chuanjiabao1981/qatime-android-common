@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,8 +16,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import libraryextra.utils.LogUtils;
 
 /**
  * @author luntify
@@ -40,7 +39,7 @@ public class JsonUtils {
         try {
             return sGson.fromJson(json, clz);
         } catch (Exception e) {
-            LogUtils.e("JSON", e.getMessage());
+            Logger.e("JSON", e.getMessage());
             e.printStackTrace();
             return null;
         }
@@ -77,7 +76,7 @@ public class JsonUtils {
                 retList.add(entity);
             }
         } catch (Exception e) {
-            LogUtils.e("异常",e.toString());
+            Logger.e("异常",e.toString());
             e.printStackTrace();
         }
 

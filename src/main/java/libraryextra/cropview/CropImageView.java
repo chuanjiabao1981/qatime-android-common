@@ -30,6 +30,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,7 +48,6 @@ import libraryextra.cropview.callback.CropCallback;
 import libraryextra.cropview.callback.LoadCallback;
 import libraryextra.cropview.callback.SaveCallback;
 import libraryextra.cropview.util.Utils;
-import libraryextra.utils.LogUtils;
 
 @SuppressWarnings("unused")
 public class CropImageView extends ImageView {
@@ -1231,11 +1231,12 @@ public class CropImageView extends ImageView {
                 cropped = rotated;
             }
         } catch (IOException e) {
-            LogUtils.e("An error occurred while cropping the image: " + e.getMessage(), e);
+
+            Logger.e("An error occurred while cropping the image: " + e.getMessage(), e);
         } catch (OutOfMemoryError e) {
-            LogUtils.e("OOM Error: " + e.getMessage(), e);
+            Logger.e("OOM Error: " + e.getMessage());
         } catch (Exception e) {
-            LogUtils.e("An unexpected error has occurred: " + e.getMessage(), e);
+            Logger.e("An unexpected error has occurred: " + e.getMessage(), e);
         } finally {
             Utils.closeQuietly(is);
         }
@@ -1305,7 +1306,7 @@ public class CropImageView extends ImageView {
                 bitmap.compress(mCompressFormat, mCompressQuality, outputStream);
             }
         } catch (IOException e) {
-            LogUtils.e("An error occurred while saving the image: " + uri, e);
+            Logger.e("An error occurred while saving the image: " + uri, e);
             postErrorOnMainThread(mSaveCallback);
         } finally {
             Utils.closeQuietly(outputStream);
@@ -1431,11 +1432,11 @@ public class CropImageView extends ImageView {
                         }
                     });
                 } catch (OutOfMemoryError e) {
-                    LogUtils.e("OOM Error: " + e.getMessage(), e);
+                    Logger.e("OOM Error: " + e.getMessage());
                     postErrorOnMainThread(mLoadCallback);
                     mIsLoading = false;
                 } catch (Exception e) {
-                    LogUtils.e("An unexpected error has occurred: " + e.getMessage(), e);
+                    Logger.e("An unexpected error has occurred: " + e.getMessage(), e);
                     postErrorOnMainThread(mLoadCallback);
                     mIsLoading = false;
                 }

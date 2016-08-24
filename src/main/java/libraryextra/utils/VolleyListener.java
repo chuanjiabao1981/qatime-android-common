@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.android.volley.Response;
+import com.orhanobut.logger.Logger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,7 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
 
     @Override
     public void onResponse(JSONObject response) {
-        LogUtils.e("result-----    " + response.toString());
+        Logger.e("result-----    " + response.toString());
         try {
             if (response.getInt("status") == 0) {
 //                onError(response);
@@ -43,7 +44,7 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
 
         } catch (JSONException e) {
             e.printStackTrace();
-            LogUtils.e("请求********************", "********************异常");
+            Logger.e("请求********************", "********************异常");
             Toast.makeText(context, "请求出错", Toast.LENGTH_SHORT).show();
         }
     }
