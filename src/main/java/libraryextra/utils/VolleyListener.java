@@ -28,8 +28,8 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
         try {
             if (response.getInt("status") == 0) {
 //                onError(response);
-                JSONObject error = response.getJSONObject("error");
-                if (error != null) {
+                if (response.has("error")) {
+                    JSONObject error = response.getJSONObject("error");
                     int code = error.getInt("code");
                     if (code == 1001 || code == 1002 || code == 1003) {
                         onTokenOut();
