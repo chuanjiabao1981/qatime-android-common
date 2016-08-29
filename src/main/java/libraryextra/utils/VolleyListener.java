@@ -33,6 +33,8 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
                     int code = error.getInt("code");
                     if (code == 1001 || code == 1002 || code == 1003) {
                         onTokenOut();
+                    }else if (code==3002){
+                        onError(response);
                     }
                 }else {
                     onError(response);
