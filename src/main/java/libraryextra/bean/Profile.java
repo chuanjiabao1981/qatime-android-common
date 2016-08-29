@@ -133,7 +133,7 @@ public class Profile implements Serializable {
 
     }
 
-    private class Chat_account implements Serializable {
+    public class Chat_account implements Serializable {
         private int user_id;
         private String accid;
         private String token;

@@ -197,6 +197,10 @@ public class SPUtils {
         return sp.getAll();
     }
 
+    public static Context getContext() {
+        return context;
+    }
+
 
     /**
      * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类
@@ -237,20 +241,6 @@ public class SPUtils {
             }
             editor.commit();
         }
-    }
-
-
-    /**
-     * 云信用
-     */
-
-    public static void setAccount(String account) {
-        SPUtils.account = account;
-    }
-
-
-    public static String getAccount() {
-        return account;
     }
 
 
