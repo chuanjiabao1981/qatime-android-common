@@ -41,6 +41,10 @@ public class PersonalInformationBean implements Serializable {
 
         private String parent_phone;
 
+        private String login_mobile;
+
+        private String email;
+
         private String gender;
 
         private String birthday;
@@ -55,14 +59,16 @@ public class PersonalInformationBean implements Serializable {
 
         private String desc;
 
+        public String getEmail() {return email;}
+        public void setEmail(String email) {this.email = email;}
+        public String getLogin_mobile() {return login_mobile;}
+        public void setLogin_mobile(String login_mobile) {this.login_mobile = login_mobile;}
         public String getParent_phone() {
             return parent_phone;
         }
-
         public void setParent_phone(String parent_phone) {
             this.parent_phone = parent_phone;
         }
-
         public void setId(int id){
             this.id = id;
         }
