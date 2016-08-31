@@ -439,9 +439,19 @@ public class RemedialClassDetailBean implements Serializable {
     public class Accounts implements Serializable {
         private String accid;
 
+        private String firstLetter;
+
         private String name;
 
         private String icon;
+
+        public String getFirstLetter() {
+            return firstLetter;
+        }
+
+        public void setFirstLetter(String firstLetter) {
+            this.firstLetter = firstLetter;
+        }
 
         public void setAccid(String accid) {
             this.accid = accid;
@@ -469,7 +479,7 @@ public class RemedialClassDetailBean implements Serializable {
 
     }
 
-    private class Chat_team implements Serializable {
+    public class Chat_team implements Serializable {
         private String announcement;
 
         private List<Team_announcements> team_announcements;
