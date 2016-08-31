@@ -42,6 +42,8 @@ public class TutorialClassBean implements Serializable {
 
         private int price;
 
+        private String chat_team_id;
+
         private int buy_tickets_count;
 
         private String status;
@@ -114,6 +116,14 @@ public class TutorialClassBean implements Serializable {
 
         public int getPrice() {
             return this.price;
+        }
+
+        public String getChat_team_id() {
+            return chat_team_id;
+        }
+
+        public void setChat_team_id(String chat_team_id) {
+            this.chat_team_id = chat_team_id;
         }
 
         public void setBuy_tickets_count(int buy_tickets_count) {
