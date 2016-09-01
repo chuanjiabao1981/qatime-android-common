@@ -16,6 +16,7 @@ public class OrderConfirmBean implements Serializable {
 
     private Data data;
 
+
     public void setStatus(int status) {
         this.status = status;
     }
@@ -42,6 +43,24 @@ public class OrderConfirmBean implements Serializable {
         private String nonce_str;
 
         private App_pay_params app_pay_params;
+        private int pay_type;
+        private String created_at;
+
+        public int getPay_type() {
+            return pay_type;
+        }
+
+        public void setPay_type(int pay_type) {
+            this.pay_type = pay_type;
+        }
+
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
+        }
 
         public void setId(String id) {
             this.id = id;
@@ -85,7 +104,7 @@ public class OrderConfirmBean implements Serializable {
 
     }
 
-    public class App_pay_params implements Serializable {
+    public static class App_pay_params implements Serializable {
         private String appid;
 
         private String partnerid;
