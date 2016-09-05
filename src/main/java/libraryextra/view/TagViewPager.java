@@ -138,7 +138,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
 
     /**
      */
-    public void setAdapter(int coun) {
+    public void setAdapter(int count) {
         this.count = count;
         viewPager.setAdapter(new MyPagerAdapter());
         initTagImage(this.count, 0);
