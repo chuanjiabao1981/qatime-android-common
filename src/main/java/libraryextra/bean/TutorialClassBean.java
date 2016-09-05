@@ -46,12 +46,6 @@ public class TutorialClassBean implements Serializable {
 
         private int buy_tickets_count;
 
-        private String status;
-
-        private String description;
-
-        private int lesson_count;
-
         private int preset_lesson_count;
 
         private int completed_lesson_count;
@@ -134,29 +128,6 @@ public class TutorialClassBean implements Serializable {
             return this.buy_tickets_count;
         }
 
-        public void setStatus(String status) {
-            this.status = status;
-        }
-
-        public String getStatus() {
-            return this.status;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getDescription() {
-            return this.description;
-        }
-
-        public void setLesson_count(int lesson_count) {
-            this.lesson_count = lesson_count;
-        }
-
-        public int getLesson_count() {
-            return this.lesson_count;
-        }
 
         public void setPreset_lesson_count(int preset_lesson_count) {
             this.preset_lesson_count = preset_lesson_count;
