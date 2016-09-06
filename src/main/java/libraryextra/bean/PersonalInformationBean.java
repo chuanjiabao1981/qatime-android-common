@@ -43,6 +43,8 @@ public class PersonalInformationBean implements Serializable {
 
         private String login_mobile;
 
+        private Profile.Chat_account chat_account;
+
         private String email;
 
         private String gender;
@@ -59,80 +61,123 @@ public class PersonalInformationBean implements Serializable {
 
         private String desc;
 
-        public String getEmail() {return email;}
-        public void setEmail(String email) {this.email = email;}
-        public String getLogin_mobile() {return login_mobile;}
-        public void setLogin_mobile(String login_mobile) {this.login_mobile = login_mobile;}
+        public Profile.Chat_account getChat_account() {
+            return chat_account;
+        }
+
+        public void setChat_account(Profile.Chat_account chat_account) {
+            this.chat_account = chat_account;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
+        public String getLogin_mobile() {
+            return login_mobile;
+        }
+
+        public void setLogin_mobile(String login_mobile) {
+            this.login_mobile = login_mobile;
+        }
+
         public String getParent_phone() {
             return parent_phone;
         }
+
         public void setParent_phone(String parent_phone) {
             this.parent_phone = parent_phone;
         }
-        public void setId(int id){
+
+        public void setId(int id) {
             this.id = id;
         }
-        public int getId(){
+
+        public int getId() {
             return this.id;
         }
-        public void setName(String name){
+
+        public void setName(String name) {
             this.name = name;
         }
-        public String getName(){
+
+        public String getName() {
             return this.name;
         }
-        public void setNick_name(String nick_name){
+
+        public void setNick_name(String nick_name) {
             this.nick_name = nick_name;
         }
-        public String getNick_name(){
+
+        public String getNick_name() {
             return this.nick_name;
         }
-        public void setAvatar_url(String avatar_url){
+
+        public void setAvatar_url(String avatar_url) {
             this.avatar_url = avatar_url;
         }
-        public String getAvatar_url(){
+
+        public String getAvatar_url() {
             return this.avatar_url;
         }
-        public void setGender(String gender){
+
+        public void setGender(String gender) {
             this.gender = gender;
         }
-        public String getGender(){
+
+        public String getGender() {
             return this.gender;
         }
-        public void setBirthday(String birthday){
+
+        public void setBirthday(String birthday) {
             this.birthday = birthday;
         }
-        public String getBirthday(){
+
+        public String getBirthday() {
             return this.birthday;
         }
-        public void setGrade(String grade){
+
+        public void setGrade(String grade) {
             this.grade = grade;
         }
-        public String getGrade(){
+
+        public String getGrade() {
             return this.grade;
         }
-        public void setProvince(String province){
+
+        public void setProvince(String province) {
             this.province = province;
         }
-        public String getProvince(){
+
+        public String getProvince() {
             return this.province;
         }
-        public void setCity(String city){
+
+        public void setCity(String city) {
             this.city = city;
         }
-        public String getCity(){
+
+        public String getCity() {
             return this.city;
         }
-        public void setSchool(int school){
+
+        public void setSchool(int school) {
             this.school = school;
         }
-        public int getSchool(){
+
+        public int getSchool() {
             return this.school;
         }
-        public void setDesc(String desc){
+
+        public void setDesc(String desc) {
             this.desc = desc;
         }
-        public String getDesc(){
+
+        public String getDesc() {
             return this.desc;
         }
     }
