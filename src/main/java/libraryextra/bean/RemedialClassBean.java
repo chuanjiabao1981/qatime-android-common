@@ -46,6 +46,11 @@ public class RemedialClassBean implements Serializable {
 
         private boolean is_bought;
 
+        private String preview_time;
+
+        public String getPreview_time() {
+            return preview_time;
+        }
         public void setId(int id) {
             this.id = id;
         }
