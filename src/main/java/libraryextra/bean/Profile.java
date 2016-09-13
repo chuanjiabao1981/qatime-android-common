@@ -61,6 +61,8 @@ public class Profile implements Serializable {
 
         private String avatar_url;
 
+        private String ex_big_avatar_url;
+
         private String login_mobile;
 
         private String email;
@@ -81,6 +83,14 @@ public class Profile implements Serializable {
 
         public void setLogin_mobile(String login_mobile) {
             this.login_mobile = login_mobile;
+        }
+
+        public String getEx_big_avatar_url() {
+            return ex_big_avatar_url;
+        }
+
+        public void setEx_big_avatar_url(String ex_big_avatar_url) {
+            this.ex_big_avatar_url = ex_big_avatar_url;
         }
 
         public String getEmail() {
