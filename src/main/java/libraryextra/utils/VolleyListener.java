@@ -9,6 +9,8 @@ import com.orhanobut.logger.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import cn.qatime.player.libraryextra.R;
+
 
 /**
  * @author luntify
@@ -33,6 +35,8 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
                     int code = error.getInt("code");
                     if (code == 1001 || code == 1002 || code == 1003) {
                         onTokenOut();
+                    } else if (code == 2002) {
+                        Toast.makeText(context,context.getResources().getString(R.string.unsupported_client),Toast.LENGTH_SHORT).show();
                     } else {
                         onError(response);
                     }

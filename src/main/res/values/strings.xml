@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LibraryExtra</string>
+    <string name="unsupported_client">不支持的客户端</string>
 </resources>
