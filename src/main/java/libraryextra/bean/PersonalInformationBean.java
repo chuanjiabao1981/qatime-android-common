@@ -35,6 +35,16 @@ public class PersonalInformationBean implements Serializable {
 
         private String name;
 
+        private String ex_big_avatar_url;
+
+        public String getEx_big_avatar_url() {
+            return ex_big_avatar_url;
+        }
+
+        public void setEx_big_avatar_url(String ex_big_avatar_url) {
+            this.ex_big_avatar_url = ex_big_avatar_url;
+        }
+
         private String nick_name;
 
         private String avatar_url;
