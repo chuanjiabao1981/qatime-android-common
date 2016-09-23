@@ -12,6 +12,8 @@
 
     <color name="orange_bg">#fff39e2a</color>
     <color name="orange_hint_bg">#42f39e2a</color>
+    <color name="button_hint_bg">#FFDCCB</color>
+    <color name="button_bg">#ff9966</color>
     <color name="gray_dark">#ff525252</color>
     <color name="windowBackground">#00000000</color>
     <color name="gray_normal">#ff909090</color>
