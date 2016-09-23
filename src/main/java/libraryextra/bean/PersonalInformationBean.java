@@ -39,6 +39,8 @@ public class PersonalInformationBean implements Serializable {
 
         private String avatar_url;
 
+        private String ex_big_avatar_url;
+
         private String parent_phone;
 
         private String login_mobile;
@@ -67,6 +69,14 @@ public class PersonalInformationBean implements Serializable {
 
         public void setChat_account(Profile.Chat_account chat_account) {
             this.chat_account = chat_account;
+        }
+
+        public String getEx_big_avatar_url() {
+            return ex_big_avatar_url;
+        }
+
+        public void setEx_big_avatar_url(String ex_big_avatar_url) {
+            this.ex_big_avatar_url = ex_big_avatar_url;
         }
 
         public String getEmail() {

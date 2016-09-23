@@ -133,14 +133,6 @@ public class Profile implements Serializable {
             return this.nick_name;
         }
 
-        public void setSmall_avatar_url(String small_avatar_url) {
-            this.avatar_url = small_avatar_url;
-        }
-
-        public String getSmall_avatar_url() {
-            return this.avatar_url;
-        }
-
     }
 
     public class Chat_account implements Serializable {
