@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SimpleViewPagerIndicator extends LinearLayout {
 
-    private static final int COLOR_TEXT_NORMAL = 0xFF666666;
+    private static final int COLOR_TEXT_NORMAL = 0xFF999999;
     private static final int COLOR_TEXT_SELECT = 0xFF333333;
     private static final int COLOR_INDICATOR_COLOR = 0xffff9999;
 
