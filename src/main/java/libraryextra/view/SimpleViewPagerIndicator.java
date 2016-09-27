@@ -2,7 +2,6 @@ package libraryextra.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -10,13 +9,16 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleViewPagerIndicator extends LinearLayout {
 
-    private static final int COLOR_TEXT_NORMAL = 0xFF000000;
-    private static final int COLOR_INDICATOR_COLOR = Color.BLACK;
+    private static final int COLOR_TEXT_NORMAL = 0xFF999999;
+    private static final int COLOR_TEXT_SELECT = 0xFF333333;
+    private static final int COLOR_INDICATOR_COLOR = 0xffff9999;
 
     private String[] mTitles;
     private int mTabCount;
@@ -25,6 +27,8 @@ public class SimpleViewPagerIndicator extends LinearLayout {
     private Paint mPaint = new Paint();
     private int mTabWidth;
     private OnItemClickListener listener;
+    private List<TextView> textViews;
+    private int lastPoison = 0;
 
     public SimpleViewPagerIndicator(Context context) {
         this(context, null);
@@ -33,7 +37,7 @@ public class SimpleViewPagerIndicator extends LinearLayout {
     public SimpleViewPagerIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint.setColor(mIndicatorColor);
-        mPaint.setStrokeWidth(9.0F);
+        mPaint.setStrokeWidth(4.0F);
     }
 
     @Override
@@ -72,6 +76,11 @@ public class SimpleViewPagerIndicator extends LinearLayout {
         invalidate();
     }
 
+    public void select(int position) {
+        textViews.get(lastPoison).setTextColor(COLOR_TEXT_NORMAL);
+        lastPoison = position;
+        textViews.get(position).setTextColor(COLOR_TEXT_SELECT);
+    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -81,18 +90,18 @@ public class SimpleViewPagerIndicator extends LinearLayout {
     private void generateTitleView() {
         if (getChildCount() > 0)
             this.removeAllViews();
-        int count = mTitles.length;
-
+        final int count = mTitles.length;
         setWeightSum(count);
+        textViews = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            TextView tv = new TextView(getContext());
+            final TextView tv = new TextView(getContext());
             LayoutParams lp = new LayoutParams(0,
                     LayoutParams.MATCH_PARENT);
             lp.weight = 1;
             tv.setGravity(Gravity.CENTER);
-            tv.setTextColor(COLOR_TEXT_NORMAL);
+            tv.setTextColor(i == 0 ? COLOR_TEXT_SELECT : COLOR_TEXT_NORMAL);
             tv.setText(mTitles[i]);
-            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             tv.setLayoutParams(lp);
             final int finalI = i;
             tv.setOnClickListener(new OnClickListener() {
@@ -104,12 +113,12 @@ public class SimpleViewPagerIndicator extends LinearLayout {
                 }
             });
             addView(tv);
+            textViews.add(tv);
         }
     }
 
     public void setOnItemClickListener(OnItemClickListener l) {
         this.listener = l;
-
     }
 
     public interface OnItemClickListener {
