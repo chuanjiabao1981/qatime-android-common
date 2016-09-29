@@ -12,46 +12,105 @@ import java.io.Serializable;
 public class OrderConfirmBean implements Serializable {
 
 
+    /**
+     * status : 1
+     * data : {"id":"201609281730320861","amount":"0.0","pay_type":"weixin","status":"unpaid","source":"app","created_at":"2016-09-28T17:30:32.435+08:00","updated_at":"2016-09-28T17:30:32.435+08:00","pay_at":null,"prepay_id":"wx20160928173033bcc71991570779530306","nonce_str":"QzRKloQhHiO6JHSd","app_pay_params":{"appid":"wxf2dfbeb5f641ce40","partnerid":"1379576802","package":"Sign=WXPay","timestamp":"1475055033","prepayid":"wx20160928173033bcc71991570779530306","noncestr":"QzRKloQhHiO6JHSd","sign":"2E311F87C71C1B4A9A6D7CC5500E15DA"}}
+     */
+
     private int status;
+    /**
+     * id : 201609281730320861
+     * amount : 0.0
+     * pay_type : weixin
+     * status : unpaid
+     * source : app
+     * created_at : 2016-09-28T17:30:32.435+08:00
+     * updated_at : 2016-09-28T17:30:32.435+08:00
+     * pay_at : null
+     * prepay_id : wx20160928173033bcc71991570779530306
+     * nonce_str : QzRKloQhHiO6JHSd
+     * app_pay_params : {"appid":"wxf2dfbeb5f641ce40","partnerid":"1379576802","package":"Sign=WXPay","timestamp":"1475055033","prepayid":"wx20160928173033bcc71991570779530306","noncestr":"QzRKloQhHiO6JHSd","sign":"2E311F87C71C1B4A9A6D7CC5500E15DA"}
+     */
 
-    private Data data;
+    private DataBean data;
 
+    public int getStatus() {
+        return status;
+    }
 
     public void setStatus(int status) {
         this.status = status;
     }
 
-    public int getStatus() {
-        return this.status;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setData(Data data) {
+    public void setData(DataBean data) {
         this.data = data;
     }
 
-    public Data getData() {
-        return this.data;
-    }
-
-    public class Data implements Serializable {
+    public static class DataBean implements Serializable {
         private String id;
-
+        private String amount;
+        private String pay_type;
         private String status;
-
-        private String prepay_id;
-
-        private String nonce_str;
-
-        private App_pay_params app_pay_params;
-        private int pay_type;
+        private String source;
         private String created_at;
+        private String updated_at;
+        private String pay_at;
+        private String prepay_id;
+        private String nonce_str;
+        /**
+         * appid : wxf2dfbeb5f641ce40
+         * partnerid : 1379576802
+         * package : Sign=WXPay
+         * timestamp : 1475055033
+         * prepayid : wx20160928173033bcc71991570779530306
+         * noncestr : QzRKloQhHiO6JHSd
+         * sign : 2E311F87C71C1B4A9A6D7CC5500E15DA
+         */
+        private String app_pay_str;
+        private AppPayParamsBean app_pay_params;
 
-        public int getPay_type() {
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getAmount() {
+            return amount;
+        }
+
+        public void setAmount(String amount) {
+            this.amount = amount;
+        }
+
+        public String getPay_type() {
             return pay_type;
         }
 
-        public void setPay_type(int pay_type) {
+        public void setPay_type(String pay_type) {
             this.pay_type = pay_type;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getSource() {
+            return source;
+        }
+
+        public void setSource(String source) {
+            this.source = source;
         }
 
         public String getCreated_at() {
@@ -62,118 +121,119 @@ public class OrderConfirmBean implements Serializable {
             this.created_at = created_at;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public String getUpdated_at() {
+            return updated_at;
         }
 
-        public String getId() {
-            return this.id;
+        public void setUpdated_at(String updated_at) {
+            this.updated_at = updated_at;
         }
 
-        public void setStatus(String status) {
-            this.status = status;
+        public String getPay_at() {
+            return pay_at;
         }
 
-        public String getStatus() {
-            return this.status;
+        public void setPay_at(String pay_at) {
+            this.pay_at = pay_at;
+        }
+
+        public String getPrepay_id() {
+            return prepay_id;
         }
 
         public void setPrepay_id(String prepay_id) {
             this.prepay_id = prepay_id;
         }
 
-        public String getPrepay_id() {
-            return this.prepay_id;
+        public String getNonce_str() {
+            return nonce_str;
         }
 
         public void setNonce_str(String nonce_str) {
             this.nonce_str = nonce_str;
         }
 
-        public String getNonce_str() {
-            return this.nonce_str;
+        public AppPayParamsBean getApp_pay_params() {
+            return app_pay_params;
         }
 
-        public void setApp_pay_params(App_pay_params app_pay_params) {
+        public void setApp_pay_params(AppPayParamsBean app_pay_params) {
             this.app_pay_params = app_pay_params;
         }
 
-        public App_pay_params getApp_pay_params() {
-            return this.app_pay_params;
+        public String getApp_pay_str() {
+            return app_pay_str;
         }
 
-    }
-
-    public static class App_pay_params implements Serializable {
-        private String appid;
-
-        private String partnerid;
-        @SerializedName("package")
-        private String packages;
-
-        private String timestamp;
-
-        private String prepayid;
-
-        private String noncestr;
-
-        private String sign;
-
-        public void setAppid(String appid) {
-            this.appid = appid;
+        public void setApp_pay_str(String app_pay_str) {
+            this.app_pay_str = app_pay_str;
         }
 
-        public String getAppid() {
-            return this.appid;
-        }
+        public static class AppPayParamsBean implements Serializable {
+            private String appid;
+            private String partnerid;
+            @SerializedName("package")
+            private String packageX;
+            private String timestamp;
+            private String prepayid;
+            private String noncestr;
+            private String sign;
 
-        public void setPartnerid(String partnerid) {
-            this.partnerid = partnerid;
-        }
+            public String getAppid() {
+                return appid;
+            }
 
-        public String getPartnerid() {
-            return this.partnerid;
-        }
+            public void setAppid(String appid) {
+                this.appid = appid;
+            }
 
-        public void setPackage(String packages) {
-            this.packages = packages;
-        }
+            public String getPartnerid() {
+                return partnerid;
+            }
 
-        public String getPackage() {
-            return this.packages;
-        }
+            public void setPartnerid(String partnerid) {
+                this.partnerid = partnerid;
+            }
 
-        public void setTimestamp(String timestamp) {
-            this.timestamp = timestamp;
-        }
+            public String getPackage() {
+                return packageX;
+            }
 
-        public String getTimestamp() {
-            return this.timestamp;
-        }
+            public void setPackage(String packageX) {
+                this.packageX = packageX;
+            }
 
-        public void setPrepayid(String prepayid) {
-            this.prepayid = prepayid;
-        }
+            public String getTimestamp() {
+                return timestamp;
+            }
 
-        public String getPrepayid() {
-            return this.prepayid;
-        }
+            public void setTimestamp(String timestamp) {
+                this.timestamp = timestamp;
+            }
 
-        public void setNoncestr(String noncestr) {
-            this.noncestr = noncestr;
-        }
+            public String getPrepayid() {
+                return prepayid;
+            }
 
-        public String getNoncestr() {
-            return this.noncestr;
-        }
+            public void setPrepayid(String prepayid) {
+                this.prepayid = prepayid;
+            }
 
-        public void setSign(String sign) {
-            this.sign = sign;
-        }
+            public String getNoncestr() {
+                return noncestr;
+            }
 
-        public String getSign() {
-            return this.sign;
-        }
+            public void setNoncestr(String noncestr) {
+                this.noncestr = noncestr;
+            }
 
+            public String getSign() {
+                return sign;
+            }
+
+            public void setSign(String sign) {
+                this.sign = sign;
+            }
+        }
     }
 }
