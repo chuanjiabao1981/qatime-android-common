@@ -16,6 +16,8 @@
     <color name="button_bg">#ff9966</color>
     <color name="gray_dark">#ff525252</color>
     <color name="windowBackground">#00000000</color>
+
+
     <color name="gray_normal">#ff909090</color>
     <color name="gray_normal_light">#ffb1b1b1</color>
 </resources>
