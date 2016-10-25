@@ -3,6 +3,7 @@ package libraryextra.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     protected List<T> mDatas;
     protected final int mItemLayoutId;
 
-    public CommonAdapter(Context context, List<T> mDatas, int itemLayoutId) {
+    public CommonAdapter(Context context, List<T> mDatas, @LayoutRes int itemLayoutId) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(mContext);
         this.mDatas = mDatas;
