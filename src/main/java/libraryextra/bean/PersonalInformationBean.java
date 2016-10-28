@@ -1,6 +1,7 @@
 package libraryextra.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author luntify
@@ -8,6 +9,7 @@ import java.io.Serializable;
  * @Description 个人信息
  */
 public class PersonalInformationBean implements Serializable {
+
 
     private int status;
 
@@ -31,6 +33,8 @@ public class PersonalInformationBean implements Serializable {
 
 
     public class Data implements Serializable {
+
+
         private int id;
 
         private String name;
@@ -62,6 +66,18 @@ public class PersonalInformationBean implements Serializable {
         private int school;
 
         private String desc;
+        /**
+         * teaching_years : within_three_years
+         * category : 高中
+         * subject : 数学
+         * grade_range : []
+         */
+
+        private String teaching_years;
+        private String category;
+        private String subject;
+        private List<?> grade_range;
+
 
         public Profile.Chat_account getChat_account() {
             return chat_account;
@@ -189,6 +205,38 @@ public class PersonalInformationBean implements Serializable {
 
         public String getDesc() {
             return this.desc;
+        }
+
+        public String getTeaching_years() {
+            return teaching_years;
+        }
+
+        public void setTeaching_years(String teaching_years) {
+            this.teaching_years = teaching_years;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
+        }
+
+        public String getSubject() {
+            return subject;
+        }
+
+        public void setSubject(String subject) {
+            this.subject = subject;
+        }
+
+        public List<?> getGrade_range() {
+            return grade_range;
+        }
+
+        public void setGrade_range(List<?> grade_range) {
+            this.grade_range = grade_range;
         }
     }
 }
