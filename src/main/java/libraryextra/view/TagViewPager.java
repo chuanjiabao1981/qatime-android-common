@@ -98,13 +98,23 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         tagImageLayout = new LinearLayout(context);
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,
                 android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        if (gravity == 2) {
-            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            params.setMargins(0, 0, 0, marginButtom);
-        } else {
+//        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        if (gravity == 1) {
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            params.addRule( RelativeLayout.CENTER_HORIZONTAL);
             params.setMargins(0, marginButtom, 0, 0);
+        } else if (gravity == 2) {
+            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM );
+            params.addRule( RelativeLayout.CENTER_HORIZONTAL);
+            params.setMargins(0, 0, 0, marginButtom);
+        } else if (gravity == 3) {
+            params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            params.setMargins(0, marginButtom, 20, 0);
+        } else if (gravity == 4) {
+            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            params.setMargins(0, 0, 20, marginButtom);
         }
         tagImageLayout.setLayoutParams(params);
         this.addView(tagImageLayout);
@@ -116,7 +126,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
     }
 
     /**
-     * @param count   viewpager实际item数量,一般是list.size();
+     * @param count viewpager实际item数量,一般是list.size();
      */
     public void setAdapter(int count, int currentPositon) {
         this.count = count;
