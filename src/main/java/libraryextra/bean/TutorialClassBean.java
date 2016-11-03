@@ -63,6 +63,25 @@ public class TutorialClassBean implements Serializable {
         private boolean is_tasting;
 
         private boolean is_bought;
+        /**
+         * status : init
+         * description : 哈哈哈
+         * lesson_count : 0
+         * lessons : []
+         * chat_team : null
+         * push_address : rtmp://pa0a19f55.live.126.net/live/0ca7943afaa340c9a7c1a8baa5afac97?wsSecret=74c57894244754864cd0f07cc25ba4be&wsTime=1477448251
+         * board : rtmp://pa0a19f55.live.126.net/live/2794c854398f4d05934157e05e2fe419?wsSecret=a3c84d0ecfdeb7434ffaa534607b9e8f&wsTime=1471330308
+         * camera : rtmp://pa0a19f55.live.126.net/live/0ca7943afaa340c9a7c1a8baa5afac97?wsSecret=74c57894244754864cd0f07cc25ba4be&wsTime=1477448251
+         */
+
+        private String status;
+        private String description;
+        private int lesson_count;
+        private Object chat_team;
+        private String push_address;
+        private String board;
+        private String camera;
+        private List<?> lessons;
 
         public void setId(int id) {
             this.id = id;
@@ -202,6 +221,69 @@ public class TutorialClassBean implements Serializable {
             return this.is_bought;
         }
 
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public int getLesson_count() {
+            return lesson_count;
+        }
+
+        public void setLesson_count(int lesson_count) {
+            this.lesson_count = lesson_count;
+        }
+
+        public Object getChat_team() {
+            return chat_team;
+        }
+
+        public void setChat_team(Object chat_team) {
+            this.chat_team = chat_team;
+        }
+
+        public String getPush_address() {
+            return push_address;
+        }
+
+        public void setPush_address(String push_address) {
+            this.push_address = push_address;
+        }
+
+        public String getBoard() {
+            return board;
+        }
+
+        public void setBoard(String board) {
+            this.board = board;
+        }
+
+        public String getCamera() {
+            return camera;
+        }
+
+        public void setCamera(String camera) {
+            this.camera = camera;
+        }
+
+        public List<?> getLessons() {
+            return lessons;
+        }
+
+        public void setLessons(List<?> lessons) {
+            this.lessons = lessons;
+        }
     }
 
 }
