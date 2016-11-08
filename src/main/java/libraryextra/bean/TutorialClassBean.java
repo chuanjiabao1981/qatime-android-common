@@ -56,7 +56,9 @@ public class TutorialClassBean implements Serializable {
 
         private String publicize;
 
-        private String pull_address;
+        private String camera;
+
+        private String board;
 
         private String preview_time;
 
@@ -82,6 +84,14 @@ public class TutorialClassBean implements Serializable {
         private String board;
         private String camera;
         private List<?> lessons;
+
+        public String getBoard() {
+            return board;
+        }
+
+        public void setBoard(String board) {
+            this.board = board;
+        }
 
         public void setId(int id) {
             this.id = id;
@@ -188,12 +198,12 @@ public class TutorialClassBean implements Serializable {
             return this.publicize;
         }
 
-        public void setPull_address(String pull_address) {
-            this.pull_address = pull_address;
+        public String getCamera() {
+            return camera;
         }
 
-        public String getPull_address() {
-            return this.pull_address;
+        public void setCamera(String camera) {
+            this.camera = camera;
         }
 
         public void setPreview_time(String preview_time) {
