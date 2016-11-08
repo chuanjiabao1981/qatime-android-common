@@ -193,6 +193,9 @@ public abstract class DownFileUtil {
 		context.startActivity(intent);
 	}
 
+	public String getPath(){
+		return path;
+	}
 	/**
 	 * 
 	 * @param path
