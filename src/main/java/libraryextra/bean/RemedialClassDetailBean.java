@@ -62,9 +62,9 @@ public class RemedialClassDetailBean implements Serializable {
 
         private Chat_team chat_team;
 
-        private String camera;
+        private String camera_pull_stream;
 
-        private String board;
+        private String board_pull_stream;
 
         private Teacher teacher;
 
@@ -217,11 +217,11 @@ public class RemedialClassDetailBean implements Serializable {
         }
 
         public String getCamera() {
-            return camera;
+            return camera_pull_stream;
         }
 
         public String getBoard() {
-            return board;
+            return board_pull_stream;
         }
 
         public void setTeacher(Teacher teacher) {
