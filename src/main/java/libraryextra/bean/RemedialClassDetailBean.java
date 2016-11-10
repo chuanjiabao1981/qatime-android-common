@@ -62,7 +62,9 @@ public class RemedialClassDetailBean implements Serializable {
 
         private Chat_team chat_team;
 
-        private String pull_address;
+        private String camera_pull_stream;
+
+        private String board_pull_stream;
 
         private Teacher teacher;
 
@@ -214,12 +216,12 @@ public class RemedialClassDetailBean implements Serializable {
             return this.chat_team;
         }
 
-        public void setPull_address(String pull_address) {
-            this.pull_address = pull_address;
+        public String getCamera() {
+            return camera_pull_stream;
         }
 
-        public String getPull_address() {
-            return this.pull_address;
+        public String getBoard() {
+            return board_pull_stream;
         }
 
         public void setTeacher(Teacher teacher) {
