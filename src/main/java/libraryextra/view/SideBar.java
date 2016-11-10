@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,7 +21,7 @@ public class SideBar extends View {
     private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
     // 26个字母
     public static String[] b = {"最近", "全国", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-    private int choose = -1;// 选中
+    private int choose = 0;// 选中
     private Paint paint = new Paint();
 
     private TextView mTextDialog;
@@ -62,9 +61,13 @@ public class SideBar extends View {
         for (int i = 0; i < b.length; i++) {
             paint.setColor(Color.parseColor("#cccccc"));
             // paint.setColor(Color.WHITE);
-            paint.setTypeface(Typeface.DEFAULT_BOLD);
+            paint.setTypeface(Typeface.DEFAULT);
             paint.setAntiAlias(true);
-            paint.setTextSize(25);
+            if (i == 0 || i == 1) {
+                paint.setTextSize(25);
+            } else {
+                paint.setTextSize(50);
+            }
             // 选中的状态
             if (i == choose) {
                 paint.setColor(Color.parseColor("#333333"));
@@ -89,8 +92,8 @@ public class SideBar extends View {
 
         switch (action) {
             case MotionEvent.ACTION_UP:
-                setBackgroundDrawable(new ColorDrawable(0x00000000));
-                choose = -1;//
+//                setBackgroundDrawable(new ColorDrawable(0x00000000));
+//                choose = -1;//
                 invalidate();
                 if (mTextDialog != null) {
                     mTextDialog.setVisibility(View.INVISIBLE);
@@ -98,7 +101,7 @@ public class SideBar extends View {
                 break;
 
             default:
-                setBackgroundDrawable(new ColorDrawable(0x22000000));
+//                setBackgroundDrawable(new ColorDrawable(0x22000000));
                 if (oldChoose != c) {
                     if (c >= 0 && c < b.length) {
                         if (listener != null) {
