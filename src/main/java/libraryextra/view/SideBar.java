@@ -60,14 +60,14 @@ public class SideBar extends View {
         int singleHeight = height / b.length;// 获取每一个字母的高度
 
         for (int i = 0; i < b.length; i++) {
-            paint.setColor(Color.rgb(33, 65, 98));
+            paint.setColor(Color.parseColor("#cccccc"));
             // paint.setColor(Color.WHITE);
             paint.setTypeface(Typeface.DEFAULT_BOLD);
             paint.setAntiAlias(true);
             paint.setTextSize(25);
             // 选中的状态
             if (i == choose) {
-                paint.setColor(Color.parseColor("#3399ff"));
+                paint.setColor(Color.parseColor("#333333"));
                 paint.setFakeBoldText(true);
             }
             // x坐标等于中间-字符串宽度的一半.
@@ -98,7 +98,7 @@ public class SideBar extends View {
                 break;
 
             default:
-                setBackgroundDrawable(new ColorDrawable(0x44000000));
+                setBackgroundDrawable(new ColorDrawable(0x22000000));
                 if (oldChoose != c) {
                     if (c >= 0 && c < b.length) {
                         if (listener != null) {
@@ -127,6 +127,17 @@ public class SideBar extends View {
     public void setOnTouchingLetterChangedListener(
             OnTouchingLetterChangedListener onTouchingLetterChangedListener) {
         this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
+    }
+
+
+    public void setChooseText(String s) {
+        for (int i = 0; i < b.length; i++) {
+            if (b[i].equals(s)) {
+                this.choose = i;
+                invalidate();
+                return;
+            }
+        }
     }
 
     /**

@@ -29,12 +29,25 @@ public class CityBean {
         return this.data;
     }
 
-    public class Data {
+    public static class Data {
+        public Data(String name) {
+            this.name = name;
+        }
+
         private int id;
 
         private String province_id;
 
         private String name;
+        private String firstLetter;
+
+        public String getFirstLetter() {
+            return firstLetter;
+        }
+
+        public void setFirstLetter(String firstLetter) {
+            this.firstLetter = firstLetter;
+        }
 
         public void setId(int id) {
             this.id = id;
