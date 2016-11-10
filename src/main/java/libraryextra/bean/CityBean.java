@@ -1,5 +1,6 @@
 package libraryextra.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class CityBean {
         return this.data;
     }
 
-    public static class Data {
+    public static class Data implements Serializable {
         public Data(String name) {
             this.name = name;
         }
