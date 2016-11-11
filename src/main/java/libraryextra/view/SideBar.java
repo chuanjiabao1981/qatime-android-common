@@ -56,7 +56,7 @@ public class SideBar extends View {
         // 获取焦点改变背景颜色.
         int height = getHeight();// 获取对应高度
         int width = getWidth(); // 获取对应宽度
-        int singleHeight = height / b.length;// 获取每一个字母的高度
+        float singleHeight = height / b.length;// 获取每一个字母的高度
 
         for (int i = 0; i < b.length; i++) {
             paint.setColor(Color.parseColor("#cccccc"));
@@ -64,7 +64,7 @@ public class SideBar extends View {
             paint.setTypeface(Typeface.DEFAULT);
             paint.setAntiAlias(true);
             if (i == 0 || i == 1) {
-                paint.setTextSize(25);
+                paint.setTextSize(35);
             } else {
                 paint.setTextSize(50);
             }

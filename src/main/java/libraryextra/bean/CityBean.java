@@ -48,6 +48,8 @@ public class CityBean {
 
         public void setFirstLetter(String firstLetter) {
             this.firstLetter = firstLetter;
+            this.province_id = "0";
+            this.id = 0;
         }
 
         public void setId(int id) {
