@@ -33,6 +33,8 @@ public class CityBean {
     public static class Data implements Serializable {
         public Data(String name) {
             this.name = name;
+            this.province_id = "0";
+            this.id = 0;
         }
 
         private int id;
@@ -48,8 +50,6 @@ public class CityBean {
 
         public void setFirstLetter(String firstLetter) {
             this.firstLetter = firstLetter;
-            this.province_id = "0";
-            this.id = 0;
         }
 
         public void setId(int id) {
