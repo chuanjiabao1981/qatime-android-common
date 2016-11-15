@@ -33,6 +33,8 @@ public class CityBean {
     public static class Data implements Serializable {
         public Data(String name) {
             this.name = name;
+            this.province_id = "0";
+            this.id = 0;
         }
 
         private int id;
