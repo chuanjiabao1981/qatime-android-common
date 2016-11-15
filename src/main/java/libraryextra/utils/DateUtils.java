@@ -1,5 +1,6 @@
 package libraryextra.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -167,5 +168,16 @@ public class DateUtils {
         calendar.setTime(date);
         int intWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         return weekDaysName[intWeek];
+    }
+
+    public static Date strToDate(String sTime, String s) {
+        SimpleDateFormat  parse= new SimpleDateFormat(s);
+        Date date = null;
+        try {
+            date = parse.parse(sTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 }
