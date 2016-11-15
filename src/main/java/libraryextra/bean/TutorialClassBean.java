@@ -70,6 +70,15 @@ public class TutorialClassBean implements Serializable {
         private String preview_time;
         private boolean is_tasting;
         private boolean is_bought;
+        private String status;
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
 
         public int getId() {
             return id;
