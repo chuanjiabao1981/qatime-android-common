@@ -45,6 +45,20 @@ public class MonthDateView extends View {
     private List<Integer> daysHasThingList = new ArrayList<>();
     private boolean pointerMode;//是否多点触摸
 
+    private OnCalendarPageChangeListener onCalendarPageChangeListener;
+
+    public OnCalendarPageChangeListener getOnCalendarPageChangeListener() {
+        return onCalendarPageChangeListener;
+    }
+
+    public void setOnCalendarPageChangeListener(OnCalendarPageChangeListener onCalendarPageChangeListener) {
+        this.onCalendarPageChangeListener = onCalendarPageChangeListener;
+    }
+
+    public interface OnCalendarPageChangeListener {
+        public void onPageChange(int type);
+    }
+
     public MonthDateView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mDisplayMetrics = getResources().getDisplayMetrics();
@@ -131,6 +145,7 @@ public class MonthDateView extends View {
     }
 
     private int downX = 0, downY = 0;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int eventCode = event.getAction();
@@ -144,7 +159,7 @@ public class MonthDateView extends View {
             case MotionEvent.ACTION_MOVE:
                 break;
             case MotionEvent.ACTION_UP:
-                if(pointerMode){//多点触摸不处理
+                if (pointerMode) {//多点触摸不处理
                     pointerMode = false;
                     break;
                 }
@@ -221,6 +236,9 @@ public class MonthDateView extends View {
             month = month - 1;
         }
         setSelectYearMonth(year, month, day);
+        if (onCalendarPageChangeListener != null) {
+            onCalendarPageChangeListener.onPageChange(0);
+        }
         daysHasThingList.clear();
         invalidate();
     }
@@ -244,6 +262,9 @@ public class MonthDateView extends View {
         }
         setSelectYearMonth(year, month, day);
         daysHasThingList.clear();
+        if (onCalendarPageChangeListener != null) {
+            onCalendarPageChangeListener.onPageChange(1);
+        }
         invalidate();
     }
 
