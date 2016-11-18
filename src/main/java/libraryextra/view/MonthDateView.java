@@ -35,7 +35,7 @@ public class MonthDateView extends View {
     private int mSelYear, mSelMonth, mSelDay;
     private int mColumnSize, mRowSize;
     private DisplayMetrics mDisplayMetrics;
-    private int mDaySize = 18;
+    private int mDaySize = 16;
     private TextView tv_date, tv_week;
     private int weekRow;
     private int[][] daysString;
