@@ -36,6 +36,7 @@ public abstract class VolleyListener implements Response.Listener<JSONObject> {
                     if (code == 1001 || code == 1002 || code == 1003) {
                         onTokenOut();
                     } else if (code == 2002) {
+                        onError(response);
                         Toast.makeText(context,context.getResources().getString(R.string.unsupported_client),Toast.LENGTH_SHORT).show();
                     } else {
                         onError(response);
