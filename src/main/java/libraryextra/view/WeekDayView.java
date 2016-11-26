@@ -17,36 +17,35 @@ public class WeekDayView extends View {
     //上横线颜色
     private int mTopLineColor = Color.parseColor("#eeeeee");
     //下横线颜色
-    private int mBottomLineColor = Color.parseColor("#eeeeee");
+    private int mBottomLineColor = Color.parseColor("#ffffff");
     //周一到周五的颜色
-    private int mWeedayColor = Color.parseColor("#1FC2F3");
+    private int mWeedayColor = Color.parseColor("#58cff9");
     //周六、周日的颜色
-    private int mWeekendColor = Color.parseColor("#fa4451");
+    private int mWeekendColor = Color.parseColor("#be0b0b");
     //线的宽度
     private int mStrokeWidth = 4;
     private int mWeekSize = 14;
     private Paint paint;
     private DisplayMetrics mDisplayMetrics;
-    private String[] weekString = new String[]{"一","二","三","四","五","六","日"};
+    private String[] weekString = new String[]{"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
+
     public WeekDayView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setBackgroundColor(0xffffffff);
         mDisplayMetrics = getResources().getDisplayMetrics();
         paint = new Paint();
+        paint.setAntiAlias(true);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-        if(heightMode == MeasureSpec.AT_MOST){
-            heightSize = mDisplayMetrics.densityDpi * 30;
-        }
-        if(widthMode == MeasureSpec.AT_MOST){
-            widthSize = mDisplayMetrics.densityDpi * 300;
+        if (heightMode == MeasureSpec.AT_MOST) {
+            heightSize = mDisplayMetrics.densityDpi * 40;
         }
         setMeasuredDimension(widthSize, heightSize);
     }
@@ -67,14 +66,14 @@ public class WeekDayView extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setTextSize(mWeekSize * mDisplayMetrics.scaledDensity);
         int columnWidth = width / 7;
-        for(int i=0;i < weekString.length;i++){
+        for (int i = 0; i < weekString.length; i++) {
             String text = weekString[i];
             int fontWidth = (int) paint.measureText(text);
-            int startX = columnWidth * i + (columnWidth - fontWidth)/2;
-            int startY = (int) (height/2 - (paint.ascent() + paint.descent())/2);
-            if(text.indexOf("日") > -1|| text.indexOf("六") > -1){
+            int startX = columnWidth * i + (columnWidth - fontWidth) / 2;
+            int startY = (int) (height / 2 - (paint.ascent() + paint.descent()) / 2);
+            if (text.indexOf("周日") > -1 || text.indexOf("周六") > -1) {
                 paint.setColor(mWeekendColor);
-            }else{
+            } else {
                 paint.setColor(mWeedayColor);
             }
             canvas.drawText(text, startX, startY, paint);
@@ -83,6 +82,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置顶线的颜色
+     *
      * @param mTopLineColor
      */
     public void setmTopLineColor(int mTopLineColor) {
@@ -91,6 +91,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置底线的颜色
+     *
      * @param mBottomLineColor
      */
     public void setmBottomLineColor(int mBottomLineColor) {
@@ -99,6 +100,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置周一-五的颜色
+     *
      * @return
      */
     public void setmWeedayColor(int mWeedayColor) {
@@ -107,6 +109,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置周六、周日的颜色
+     *
      * @param mWeekendColor
      */
     public void setmWeekendColor(int mWeekendColor) {
@@ -115,6 +118,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置边线的宽度
+     *
      * @param mStrokeWidth
      */
     public void setmStrokeWidth(int mStrokeWidth) {
@@ -124,6 +128,7 @@ public class WeekDayView extends View {
 
     /**
      * 设置字体的大小
+     *
      * @param mWeekSize
      */
     public void setmWeekSize(int mWeekSize) {
@@ -133,8 +138,8 @@ public class WeekDayView extends View {
 
     /**
      * 设置星期的形式
-     * @param weekString
-     * 默认值	"日","一","二","三","四","五","六"
+     *
+     * @param weekString 默认值	"日","一","二","三","四","五","六"
      */
     public void setWeekString(String[] weekString) {
         this.weekString = weekString;

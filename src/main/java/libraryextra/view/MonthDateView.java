@@ -1,11 +1,11 @@
 package libraryextra.view;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import cn.qatime.player.libraryextra.R;
 import libraryextra.utils.DateUtils;
 import libraryextra.utils.DensityUtils;
 
@@ -27,21 +28,18 @@ public class MonthDateView extends View {
     private static final int NUM_COLUMNS = 7;
     private static final int NUM_ROWS = 6;
     private final ThreadLocal<Paint> mPaint = new ThreadLocal<>();
-    private int mPreColor = Color.parseColor("#cccccc");
-    private int mAfterColor = Color.parseColor("#000000");
-    private int mSelectBGColor = Color.parseColor("#ff9900");
-    private int mCurrentBGColor = Color.parseColor("#cccccc");
+    private int mPreColor = Color.parseColor("#999999");
+    private int mAfterColor = Color.parseColor("#333333");
+    private int mSelectBGColor = Color.parseColor("#be0b0b");
+    private int mCurrentBGColor = Color.parseColor("#999999");
     private int mCurrYear, mCurrMonth, mCurrDay;
     private int mSelYear, mSelMonth, mSelDay;
     private int mColumnSize, mRowSize;
-    private DisplayMetrics mDisplayMetrics;
-    private int mDaySize = 16;
+    private final int mDaySize = 13;
     private TextView tv_date, tv_week;
     private int weekRow;
     private int[][] daysString;
-    private int mCircleRadius = DensityUtils.dp2px(getContext(), 3);
     private DateClick dateClick;
-    private int mCircleColor = Color.parseColor("#ff0000");
     private List<Integer> daysHasThingList = new ArrayList<>();
     private boolean pointerMode;//是否多点触摸
 
@@ -56,12 +54,13 @@ public class MonthDateView extends View {
     }
 
     public interface OnCalendarPageChangeListener {
-        public void onPageChange(int type);
+        void onPageChange(int type);
     }
 
     public MonthDateView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mDisplayMetrics = getResources().getDisplayMetrics();
+
+        setBackgroundColor(0xffffffff);
         Calendar calendar = Calendar.getInstance();
         Paint paint = new Paint();
         paint.setAntiAlias(true);//抗锯齿
@@ -75,14 +74,16 @@ public class MonthDateView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        setMeasuredDimension(width, height);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         initSize();
         daysString = new int[6][7];
-        mPaint.get().setTextSize(mDaySize * mDisplayMetrics.scaledDensity);
         String dayString;
         int mMonthDays = DateUtils.getMonthDays(mSelYear, mSelMonth);
         int weekNumber = DateUtils.getFirstDayWeek(mSelYear, mSelMonth);
@@ -92,31 +93,53 @@ public class MonthDateView extends View {
             int column = (day + weekNumber - 1) % 7;
             int row = (day + weekNumber - 1) / 7;
             daysString[row][column] = day + 1;
+
             int startX = (int) (mColumnSize * column + (mColumnSize - mPaint.get().measureText(dayString)) / 2);
             int startY = (int) (mRowSize * row + mRowSize / 2 - (mPaint.get().ascent() + mPaint.get().descent()) / 2);
-            if (dayString.equals(mSelDay + "")) {
-                //绘制背景色矩形
-                int startRecX = mColumnSize * column;
-                int startRecY = mRowSize * row;
-                mPaint.get().setColor(mSelectBGColor);
-                canvas.drawCircle(startRecX + mColumnSize / 2, startRecY + mRowSize / 2, mRowSize / 2, mPaint.get());
-                //记录第几行，即第几周
-                weekRow = row + 1;
-            }
-            //绘制事务圆形标志
-            drawCircle(row, column, day + 1, canvas);
+
+            int startRecX = mColumnSize * column;
+            int startRecY = mRowSize * row;
+
             if (dayString.equals(mCurrDay + "") && mCurrDay != mSelDay && mCurrMonth == mSelMonth && mCurrYear == mSelYear) {
                 //正常月，选中其他日期，则今日为红色
-                int startRecX = mColumnSize * column;
-                int startRecY = mRowSize * row;
+                mPaint.get().reset();
+                mPaint.get().setAntiAlias(true);//抗锯齿
                 mPaint.get().setColor(mCurrentBGColor);
-                canvas.drawCircle(startRecX + mColumnSize / 2, startRecY + mRowSize / 2, mRowSize / 2, mPaint.get());
+                mPaint.get().setStyle(Paint.Style.STROKE);
+                mPaint.get().setStrokeWidth(2);
+//                canvas.drawRoundRect(startRecX + mColumnSize / 2, startRecY + mRowSize / 2, mRowSize / 2, mPaint.get());
+                canvas.drawRect(startRecX, startRecY, startRecX + mColumnSize, startRecY + mRowSize, mPaint.get());
             }
+
+            if (dayString.equals(mSelDay + "")) {//选中的日期--每月都会有
+                mPaint.get().reset();
+                mPaint.get().setAntiAlias(true);//抗锯齿
+                mPaint.get().setColor(mSelectBGColor);
+                mPaint.get().setStyle(Paint.Style.STROKE);
+                mPaint.get().setStrokeWidth(2);
+                canvas.drawRect(startRecX, startRecY, startRecX + mColumnSize, startRecY + mRowSize, mPaint.get());
+                weekRow = row + 1;
+            }
+
+            //绘制事务圆形标志----需要提醒的日期
+            drawCircle(column, row, day + 1, canvas);
+
+
+            mPaint.get().reset();
+            mPaint.get().setAntiAlias(true);//抗锯齿
+
             if (mSelYear < mCurrYear || (mSelYear <= mCurrYear && mSelMonth < mCurrMonth) || (mSelYear <= mCurrYear && mSelMonth <= mCurrMonth && Integer.valueOf(dayString) < mCurrDay)) {
                 mPaint.get().setColor(mPreColor);
             } else {
                 mPaint.get().setColor(mAfterColor);
             }
+
+            if (dayString.equals(String.valueOf(mSelDay))) {
+                mPaint.get().setColor(mSelectBGColor);
+            }
+            mPaint.get().setTextSize(DensityUtils.dp2px(getContext(), mDaySize));
+            mPaint.get().setStyle(Paint.Style.FILL);
+            mPaint.get().setStrokeWidth(1);
             canvas.drawText(dayString, startX, startY, mPaint.get());
 
             if (tv_date != null) {
@@ -129,13 +152,14 @@ public class MonthDateView extends View {
         }
     }
 
-    private void drawCircle(int row, int column, int day, Canvas canvas) {
+    private void drawCircle(int column, int row, int day, Canvas canvas) {
         if (daysHasThingList != null && daysHasThingList.size() > 0) {
             if (!daysHasThingList.contains(day)) return;
-            mPaint.get().setColor(mCircleColor);
-            float circleX = (float) (mColumnSize * column + mColumnSize * 0.75);
-            float circley = (float) (mRowSize * row + mRowSize * 0.2);
-            canvas.drawCircle(circleX, circley, mCircleRadius, mPaint.get());
+            float circleX = (float) (mColumnSize * column + mColumnSize * 0.7);
+            float circleY = (float) (mRowSize * row + mRowSize * 0.35);
+            mPaint.get().reset();
+            mPaint.get().setAntiAlias(true);//抗锯齿
+            canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.pen), circleX, circleY, mPaint.get());
         }
     }
 
