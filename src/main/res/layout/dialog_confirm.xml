@@ -10,13 +10,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        style="@style/dialog_text_style"
-        android:text="下单失败啦，请重新下单！" />
+        style="@style/dialog_text_style" />
 
         <Button
             android:id="@+id/confirm"
             android:layout_width="140dp"
             style="@style/dialog_button_style"
-            android:text="确定"
-            android:textColor="#fff" />
+            android:text="确定"/>
 </LinearLayout>
