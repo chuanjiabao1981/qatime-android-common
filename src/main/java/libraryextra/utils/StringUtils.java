@@ -59,7 +59,7 @@ public class StringUtils {
             return "K";
         }
         try {
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
 
             byte b[] = strChinese.getBytes("GBK");// 把中文转化成byte数组
 
@@ -270,7 +270,6 @@ public class StringUtils {
     /**
      * 获取带属性的字符串
      * @param context
-     * @param String str
      * @return
      */
     public static SpannedString getSpannedString(Context context,String str) {

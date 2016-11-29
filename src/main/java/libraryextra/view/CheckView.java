@@ -8,6 +8,7 @@ import android.view.View;
 
 import libraryextra.utils.CheckUtil;
 import libraryextra.utils.Config;
+import libraryextra.utils.DensityUtils;
 
 
 public class CheckView extends View {
@@ -20,7 +21,8 @@ public class CheckView extends View {
         super(context, attrs);
         mContext = context;
         mTempPaint.setAntiAlias(true);
-        mTempPaint.setTextSize(Config.TEXT_SIZE);
+        mTempPaint.setTextSize(DensityUtils.sp2px(getContext(), Config.TEXT_SIZE));
+        mTempPaint.setColor(0xffffffff);
         mTempPaint.setStrokeWidth(3);
     }
 
@@ -31,7 +33,7 @@ public class CheckView extends View {
         int dx = 40;
         if (CheckNum != null && CheckNum.length > 0) {
             for (int i = 0; i < 4; i++) {//绘制验证控件上的文本
-                canvas.drawText("" + CheckNum[i], dx, CheckUtil.getPositon(height), mTempPaint);
+                canvas.drawText("" + CheckNum[i], dx, CheckUtil.getPosition(height), mTempPaint);
                 dx += width / 5;
             }
             int[] line;
@@ -48,15 +50,8 @@ public class CheckView extends View {
         }
     }
 
-    public void setCheckNum(int[] chenckNum) {//设置验证码
-        CheckNum = chenckNum;
-    }
-
-    public int[] getCheckNum() {//获得验证码
-        return CheckNum;
-    }
-
-    public void invaliChenkNum() {
+    public void setCheckNum(int[] checkNum) {//设置验证码
+        CheckNum = checkNum;
         invalidate();
     }
 }

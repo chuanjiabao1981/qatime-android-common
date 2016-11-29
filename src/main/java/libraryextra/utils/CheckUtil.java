@@ -56,23 +56,18 @@ public class CheckUtil
         for (int i = 0; i < 4; i++) {
             checkString += checkNum[i];
         }
-        if(userCheck.equals(checkString)){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return userCheck.equals(checkString);
     }
     /**
      *  计算验证码的绘制y点位置
      * @param height 传入CheckView的高度值
      * @return
      */
-    public static int getPositon(int height){
-        int tempPositoin = (int) (Math.random() * height);
-        if(tempPositoin < 20){
-            tempPositoin += 20;
+    public static int getPosition(int height){
+        int tempPosition = (int) (Math.random() * height);
+        if(tempPosition < 30){
+            tempPosition += 30;
         }
-        return tempPositoin;
+        return tempPosition;
     }
 }
