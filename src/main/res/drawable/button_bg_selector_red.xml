@@ -4,31 +4,37 @@
     <item android:state_pressed="true">
         <shape>
             <solid android:color="#be0b0b" />
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
         </shape>
     </item>
     <item android:state_focused="true">
         <shape>
             <solid android:color="#be0b0b" />
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
         </shape>
     </item>
     <item android:state_selected="true">
         <shape>
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
             <solid android:color="#be0b0b" />
         </shape>
     </item>
     <item android:state_enabled="false">
         <shape>
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
             <solid android:color="#be0b0b" />
         </shape>
     </item>
     <item android:state_enabled="true">
         <shape>
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
             <solid android:color="#be0b0b" />
         </shape>
     </item>
     <item>
         <shape>
             <solid android:color="#be0b0b" />
+            <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
         </shape>
     </item>
 
