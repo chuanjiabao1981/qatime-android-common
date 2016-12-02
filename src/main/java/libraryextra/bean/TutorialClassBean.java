@@ -71,7 +71,15 @@ public class TutorialClassBean implements Serializable {
         private boolean is_tasting;
         private boolean is_bought;
         private String status;
+        private boolean tasted;
 
+        public boolean isTasted() {
+            return tasted;
+        }
+
+        public void setTasted(boolean tasted) {
+            this.tasted = tasted;
+        }
         public String getStatus() {
             return status;
         }

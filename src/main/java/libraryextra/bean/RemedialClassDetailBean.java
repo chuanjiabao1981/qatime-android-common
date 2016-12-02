@@ -72,6 +72,16 @@ public class RemedialClassDetailBean implements Serializable {
 
         private boolean is_bought;
 
+        private boolean tasted;
+
+        public boolean isTasted() {
+            return tasted;
+        }
+
+        public void setTasted(boolean tasted) {
+            this.tasted = tasted;
+        }
+
         public void setId(int id) {
             this.id = id;
         }
