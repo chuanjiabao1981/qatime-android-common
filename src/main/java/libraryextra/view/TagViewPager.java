@@ -34,6 +34,20 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
     private int currentItem = 0;
 
     private OnSelectedListoner selectedListoner;
+    private MyPagerAdapter adapter;
+
+    public MyPagerAdapter getAdapter() {
+        return adapter;
+    }
+
+    public void refresh(int count) {
+        this.count = count;
+        adapter.notifyDataSetChanged();
+        initTagImage(this.count, 0);
+        if (isAutoNext && count > 1) {
+            hd.postDelayed(this, autoNextTime);
+        }
+    }
 
     public interface OnSelectedListoner {
         /**
@@ -130,7 +144,8 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
      */
     public void setAdapter(int count, int currentPositon) {
         this.count = count;
-        viewPager.setAdapter(new MyPagerAdapter());
+        this.adapter = new MyPagerAdapter();
+        viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(currentPositon);
         initTagImage(this.count, currentPositon);
         if (isAutoNext && count > 1) {
