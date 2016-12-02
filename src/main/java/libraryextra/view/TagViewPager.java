@@ -40,14 +40,6 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         return adapter;
     }
 
-    public void refresh(int count) {
-        this.count = count;
-        adapter.notifyDataSetChanged();
-        initTagImage(this.count, 0);
-        if (isAutoNext && count > 1) {
-            hd.postDelayed(this, autoNextTime);
-        }
-    }
 
     public interface OnSelectedListoner {
         /**
@@ -115,11 +107,11 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
 //        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
         if (gravity == 1) {
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-            params.addRule( RelativeLayout.CENTER_HORIZONTAL);
+            params.addRule(RelativeLayout.CENTER_HORIZONTAL);
             params.setMargins(0, marginButtom, 0, 0);
         } else if (gravity == 2) {
-            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM );
-            params.addRule( RelativeLayout.CENTER_HORIZONTAL);
+            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            params.addRule(RelativeLayout.CENTER_HORIZONTAL);
             params.setMargins(0, 0, 0, marginButtom);
         } else if (gravity == 3) {
             params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
@@ -165,7 +157,8 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
      */
     public void setAdapter(int count) {
         this.count = count;
-        viewPager.setAdapter(new MyPagerAdapter());
+        this.adapter = new MyPagerAdapter();
+        viewPager.setAdapter(adapter);
         initTagImage(this.count, 0);
         if (isAutoNext && count > 1) {
             hd.postDelayed(this, autoNextTime);
@@ -176,7 +169,8 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
      * @param count viewpager实际数据数量
      */
     public void notifyChanged(int count) {
-        viewPager.getAdapter().notifyDataSetChanged();
+        this.count = count;
+        adapter.notifyDataSetChanged();
         initTagImage(count, 0);
         if (isAutoNext && count > 1) {
             hd.postDelayed(this, autoNextTime);
@@ -200,6 +194,9 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
      */
     private void initTagImage(int count2, int position) {
         tagImageLayout.removeAllViews();
+        if (count2 == 1 || count2 == 0) {
+            return;
+        }
         imageList.clear();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size,
                 size);
@@ -312,6 +309,12 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             return onGetView.getView(container, position % count);
+        }
+
+
+        @Override
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;//解决刷新adapter时第一张图片不刷新的问题
         }
 
         @Override
