@@ -438,7 +438,7 @@ public class RemedialClassDetailBean implements Serializable {
 
     }
 
-    public class Accounts implements Serializable {
+    public static class Accounts implements Serializable {
         private String accid;
 
         private String firstLetter;
@@ -513,7 +513,7 @@ public class RemedialClassDetailBean implements Serializable {
         }
     }
 
-    private class Team_announcements implements Serializable {
+    public class Team_announcements implements Serializable {
         private String announcement;
 
         private String edit_at;
