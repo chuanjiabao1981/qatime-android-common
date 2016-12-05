@@ -37,12 +37,27 @@ public class CityBean {
             this.id = 0;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            return id == ((CityBean.Data) o).getId();
+        }
+
         private int id;
 
         private String province_id;
 
         private String name;
         private String firstLetter;
+
+        private int workstations_count;
+
+        public int getWorkstations_count() {
+            return workstations_count;
+        }
+
+        public void setWorkstations_count(int workstations_count) {
+            this.workstations_count = workstations_count;
+        }
 
         public String getFirstLetter() {
             return firstLetter;
