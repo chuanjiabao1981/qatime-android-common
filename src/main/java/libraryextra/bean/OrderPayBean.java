@@ -18,5 +18,5 @@ public class OrderPayBean implements Serializable {
     public String classstarttime;
     public String classendtime;
     public String status;
-    public int price;
+    public float price;
 }

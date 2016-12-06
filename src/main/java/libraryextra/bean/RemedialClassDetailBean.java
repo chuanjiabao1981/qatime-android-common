@@ -36,7 +36,9 @@ public class RemedialClassDetailBean implements Serializable {
 
         private String teacher_name;
 
-        private int price;
+        private float price;
+
+        private float current_price;
 
         private String chat_team_id;
 
@@ -122,12 +124,20 @@ public class RemedialClassDetailBean implements Serializable {
             return this.teacher_name;
         }
 
-        public void setPrice(int price) {
+        public void setPrice(float price) {
             this.price = price;
         }
 
-        public int getPrice() {
+        public float getPrice() {
             return this.price;
+        }
+
+        public float getCurrent_price() {
+            return current_price;
+        }
+
+        public void setCurrent_price(float current_price) {
+            this.current_price = current_price;
         }
 
         public String getChat_team_id() {
