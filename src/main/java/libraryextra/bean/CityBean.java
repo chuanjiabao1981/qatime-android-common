@@ -39,7 +39,8 @@ public class CityBean {
 
         @Override
         public boolean equals(Object o) {
-            return id == ((CityBean.Data) o).getId();
+//            return id == ((CityBean.Data) o).getId();
+            return name == ((CityBean.Data) o).getName();
         }
 
         private int id;
