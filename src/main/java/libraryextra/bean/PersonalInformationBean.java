@@ -53,6 +53,8 @@ public class PersonalInformationBean implements Serializable {
 
         private String email;
 
+        private String openid;
+
         private String gender;
 
         private String birthday;
@@ -78,6 +80,13 @@ public class PersonalInformationBean implements Serializable {
         private String subject;
         private List<?> grade_range;
 
+        public String getOpenid() {
+            return openid;
+        }
+
+        public void setOpenid(String openid) {
+            this.openid = openid;
+        }
 
         public Profile.Chat_account getChat_account() {
             return chat_account;
