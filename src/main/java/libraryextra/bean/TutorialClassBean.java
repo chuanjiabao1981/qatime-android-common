@@ -57,7 +57,8 @@ public class TutorialClassBean implements Serializable {
         private String subject;
         private String grade;
         private String teacher_name;
-        private int price;
+        public float price;
+        public float current_price;
         private String chat_team_id;
         private int buy_tickets_count;
         private int preset_lesson_count;
@@ -80,6 +81,7 @@ public class TutorialClassBean implements Serializable {
         public void setTasted(boolean tasted) {
             this.tasted = tasted;
         }
+
         public String getStatus() {
             return status;
         }
@@ -128,12 +130,20 @@ public class TutorialClassBean implements Serializable {
             this.teacher_name = teacher_name;
         }
 
-        public int getPrice() {
+        public float getPrice() {
             return price;
         }
 
-        public void setPrice(int price) {
+        public void setPrice(float price) {
             this.price = price;
+        }
+
+        public float getCurrent_price() {
+            return current_price;
+        }
+
+        public void setCurrent_price(float current_price) {
+            this.current_price = current_price;
         }
 
         public String getChat_team_id() {

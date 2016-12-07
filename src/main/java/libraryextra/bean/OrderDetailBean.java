@@ -16,6 +16,7 @@ public class OrderDetailBean implements Serializable {
     public int Completed_lesson_count;
     public int Preset_lesson_count;
     public String teacher;
-    public int price;
+    public float price;
+    public float current_price;
     public String status;
 }
