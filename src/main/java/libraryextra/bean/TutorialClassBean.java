@@ -60,6 +60,7 @@ public class TutorialClassBean implements Serializable {
         public float price;
         public float current_price;
         private String chat_team_id;
+        private String chat_team_owner;
         private int buy_tickets_count;
         private int preset_lesson_count;
         private int completed_lesson_count;
@@ -152,6 +153,14 @@ public class TutorialClassBean implements Serializable {
 
         public void setChat_team_id(String chat_team_id) {
             this.chat_team_id = chat_team_id;
+        }
+
+        public String getChat_team_owner() {
+            return chat_team_owner;
+        }
+
+        public void setChat_team_owner(String chat_team_owner) {
+            this.chat_team_owner = chat_team_owner;
         }
 
         public int getBuy_tickets_count() {
