@@ -69,6 +69,8 @@ public class Profile implements Serializable {
 
         private Chat_account chat_account;
 
+        private String openid;
+
         public String getAvatar_url() {
             return avatar_url;
         }
@@ -133,6 +135,13 @@ public class Profile implements Serializable {
             return this.nick_name;
         }
 
+        public String getOpenid() {
+            return openid;
+        }
+
+        public void setOpenid(String openid) {
+            this.openid = openid;
+        }
     }
 
     public class Chat_account implements Serializable {
