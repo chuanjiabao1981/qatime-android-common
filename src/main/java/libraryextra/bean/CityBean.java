@@ -39,8 +39,18 @@ public class CityBean {
 
         @Override
         public boolean equals(Object o) {
-//            return id == ((CityBean.Data) o).getId();
-            return name == ((CityBean.Data) o).getName();
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Data data = (Data) o;
+
+            return name.equals(data.name);
+
+        }
+
+        @Override
+        public int hashCode() {
+            return name.hashCode();
         }
 
         private int id;
