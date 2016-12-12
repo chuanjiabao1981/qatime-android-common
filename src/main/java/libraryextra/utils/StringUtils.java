@@ -33,16 +33,10 @@ public class StringUtils {
      * 是否是有效Email
      ***/
     public static boolean isEmail(String email) {
-        boolean flag = true;
-        if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+        Pattern p = Pattern.compile("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?");
+        Matcher m = p.matcher(email);
+        return m.matches();
 
-            flag = false;
-        }
-        if (flag) {
-            if (email.indexOf("@") > email.indexOf("."))
-                flag = false;
-        }
-        return flag;
     }
 
     /**
