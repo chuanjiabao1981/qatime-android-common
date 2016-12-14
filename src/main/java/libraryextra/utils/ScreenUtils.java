@@ -21,6 +21,7 @@ public class ScreenUtils {
 
     /**
      * 获取屏幕亮度
+     *
      * @param activity
      * @return
      */
@@ -37,13 +38,14 @@ public class ScreenUtils {
 
     /**
      * 設置屏幕亮度
+     *
      * @param activity
      * @param value
      */
     public static void setScreenBrightness(Context activity, int value) {
-        WindowManager.LayoutParams params = ((Activity)activity).getWindow().getAttributes();
+        WindowManager.LayoutParams params = ((Activity) activity).getWindow().getAttributes();
         params.screenBrightness = value / 255f;
-        ((Activity)activity).getWindow().setAttributes(params);
+        ((Activity) activity).getWindow().setAttributes(params);
     }
 
     /**
@@ -140,4 +142,7 @@ public class ScreenUtils {
 
     }
 
+    public static double getDialogWidth(Context context) {
+        return getScreenWidth(context) * 0.85;
+    }
 }
