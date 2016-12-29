@@ -80,7 +80,7 @@
                     android:text="@string/please_update"
                     android:textColor="#f00"
                     android:textSize="12sp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
