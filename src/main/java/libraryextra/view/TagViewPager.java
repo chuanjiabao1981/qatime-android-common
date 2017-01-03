@@ -141,6 +141,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         viewPager.setCurrentItem(currentPositon);
         initTagImage(this.count, currentPositon);
         if (isAutoNext && count > 1) {
+            hd.removeCallbacks(this);
             hd.postDelayed(this, autoNextTime);
         }
     }
@@ -161,6 +162,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         viewPager.setAdapter(adapter);
         initTagImage(this.count, 0);
         if (isAutoNext && count > 1) {
+            hd.removeCallbacks(this);
             hd.postDelayed(this, autoNextTime);
         }
     }
@@ -173,6 +175,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         adapter.notifyDataSetChanged();
         initTagImage(count, 0);
         if (isAutoNext && count > 1) {
+            hd.removeCallbacks(this);
             hd.postDelayed(this, autoNextTime);
         }
     }
@@ -283,6 +286,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
         if (tagImageId_seleced != 0) {
             imageList.get(currentItem).setImageResource(tagImageId_seleced);
         }
+        hd.removeCallbacks(this);
         hd.postDelayed(this, autoNextTime);
     }
 
