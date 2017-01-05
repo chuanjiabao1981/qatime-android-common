@@ -114,7 +114,7 @@ public class Announcements implements Serializable {
             private String accid;
             private String name;
             private String icon;
-            private String firstLetter;
+            private String firstLetters;
             private boolean owner;
 
             public boolean isOwner() {
@@ -145,12 +145,12 @@ public class Announcements implements Serializable {
                 this.icon = icon;
             }
 
-            public void setFirstLetter(String firstLetter) {
-                this.firstLetter = firstLetter;
+            public void setFirstLetters(String firstLetters) {
+                this.firstLetters = firstLetters;
             }
 
-            public String getFirstLetter() {
-                return firstLetter;
+            public String getFirstLetters() {
+                return firstLetters;
             }
 
             public void setOwner(boolean owner) {

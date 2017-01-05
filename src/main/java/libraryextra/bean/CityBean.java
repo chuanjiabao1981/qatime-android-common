@@ -59,6 +59,7 @@ public class CityBean {
 
         private String name;
         private String firstLetter;
+        private String firstLetters;
 
         private int workstations_count;
 
@@ -76,6 +77,14 @@ public class CityBean {
 
         public void setFirstLetter(String firstLetter) {
             this.firstLetter = firstLetter;
+        }
+
+        public String getFirstLetters() {
+            return firstLetters;
+        }
+
+        public void setFirstLetters(String firstLetters) {
+            this.firstLetters = firstLetters;
         }
 
         public void setId(int id) {
