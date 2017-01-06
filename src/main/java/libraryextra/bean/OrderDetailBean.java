@@ -19,4 +19,5 @@ public class OrderDetailBean implements Serializable {
     public float price;
     public float current_price;
     public String status;
+    public String amount;
 }
