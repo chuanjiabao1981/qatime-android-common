@@ -75,6 +75,11 @@ public class RemedialClassDetailBean implements Serializable {
         private boolean is_bought;
 
         private boolean tasted;
+        /**
+         * taste_count : 0
+         */
+
+        private int taste_count;
 
         public boolean isTasted() {
             return tasted;
@@ -266,6 +271,14 @@ public class RemedialClassDetailBean implements Serializable {
 
         public boolean getIs_bought() {
             return this.is_bought;
+        }
+
+        public int getTaste_count() {
+            return taste_count;
+        }
+
+        public void setTaste_count(int taste_count) {
+            this.taste_count = taste_count;
         }
     }
 
