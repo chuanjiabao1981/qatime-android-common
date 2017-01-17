@@ -294,6 +294,26 @@ public class RemedialClassDetailBean implements Serializable {
 
         private String live_time;
 
+        private boolean replayable;
+
+        private int left_replay_times;
+
+        public boolean isReplayable() {
+            return replayable;
+        }
+
+        public void setReplayable(boolean replayable) {
+            this.replayable = replayable;
+        }
+
+        public int getLeft_replay_times() {
+            return left_replay_times;
+        }
+
+        public void setLeft_replay_times(int left_replay_times) {
+            this.left_replay_times = left_replay_times;
+        }
+
         public void setId(int id) {
             this.id = id;
         }
