@@ -7,13 +7,12 @@
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:gravity="center"
-        style="@style/dialog_text_style"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="＞" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="＞"
+        android:textSize="12sp"
+        android:textColor="#00a2ee" />
     <libraryextra.view.WheelView
         android:id="@+id/grade"
         android:layout_width="wrap_content"
