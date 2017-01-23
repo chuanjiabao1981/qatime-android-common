@@ -194,14 +194,14 @@ public class AlbumHelper {
             do {
                 String _id = cur.getString(photoIDIndex);
                 String name = cur.getString(photoNameIndex);
-                if(name.endsWith(".gif")){
+                if (!StringUtils.isNullOrBlanK(name) && name.endsWith(".gif")) {
                     cur.moveToNext();
                     continue;
                 }
                 String path = cur.getString(photoPathIndex);
 //                String title = cur.getString(photoTitleIndex);
                 String size = cur.getString(photoSizeIndex);
-                if(Integer.valueOf(size)<10240){//筛选图片大小
+                if (Integer.valueOf(size) < 10240) {//筛选图片大小
                     cur.moveToNext();
                     continue;
                 }
