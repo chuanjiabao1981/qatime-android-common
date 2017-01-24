@@ -43,7 +43,7 @@ public class StringUtils {
      * 是否是有效密码
      ***/
     public static boolean isGoodPWD(String pwd) {
-        Pattern p = Pattern.compile("^[a-zA-Z0-9_]{6,16}$");
+        Pattern p = Pattern.compile("^[A-Za-z0-9\\~\\!\\/\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\_\\=\\+\\\\\\|\\[\\{\\}\\]\\;\\:\\\'\\\"\\,\\<\\.\\>\\/\\?]{6,16}$");
         Matcher m = p.matcher(pwd);
         return m.matches();
     }
