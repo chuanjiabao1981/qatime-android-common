@@ -184,7 +184,7 @@ public class AlbumHelper {
             int photoPathIndex = cur.getColumnIndexOrThrow(Media.DATA);
             int photoNameIndex = cur.getColumnIndexOrThrow(Media.DISPLAY_NAME);
 //            int photoTitleIndex = cur.getColumnIndexOrThrow(Media.TITLE);
-            int photoSizeIndex = cur.getColumnIndexOrThrow(Media.SIZE);
+//            int photoSizeIndex = cur.getColumnIndexOrThrow(Media.SIZE);
             int bucketDisplayNameIndex = cur.getColumnIndexOrThrow(Media.BUCKET_DISPLAY_NAME);
             int bucketIdIndex = cur.getColumnIndexOrThrow(Media.BUCKET_ID);
 //            int picasaIdIndex = cur.getColumnIndexOrThrow(Media.PICASA_ID);
@@ -200,11 +200,11 @@ public class AlbumHelper {
                 }
                 String path = cur.getString(photoPathIndex);
 //                String title = cur.getString(photoTitleIndex);
-                String size = cur.getString(photoSizeIndex);
-                if (Integer.valueOf(size) < 10240) {//筛选图片大小
-                    cur.moveToNext();
-                    continue;
-                }
+//                String size = cur.getString(photoSizeIndex);
+//                if (Integer.valueOf(size) < 10240) {//筛选图片大小
+//                    cur.moveToNext();
+//                    continue;
+//                }
                 String bucketName = cur.getString(bucketDisplayNameIndex);
                 String bucketId = cur.getString(bucketIdIndex);
 //                String picasaId = cur.getString(picasaIdIndex);
