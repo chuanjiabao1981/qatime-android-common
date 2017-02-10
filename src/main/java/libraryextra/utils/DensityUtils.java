@@ -2,6 +2,7 @@ package libraryextra.utils;
 
 import android.content.Context;
 import android.opengl.GLES10;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 /**
@@ -11,6 +12,16 @@ public class DensityUtils {
     private DensityUtils() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
+    public static int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);  //+0.5是为了向上取整
+    }
+
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);//+0.5是为了向上取整
     }
 
     /**
@@ -60,6 +71,7 @@ public class DensityUtils {
     }
 
     private static int textureSize = 0;
+
     //存在第二次拿拿不到的情况，所以把拿到的数据用一个static变量保存下来
     public static final int getTextureSize() {
         if (textureSize > 0) {
@@ -72,6 +84,7 @@ public class DensityUtils {
 
         return textureSize;
     }
+
     // 将x向上对齐到2的幂指数
     public static final int roundup2n(int x) {
         if ((x & (x - 1)) == 0) {
@@ -83,5 +96,12 @@ public class DensityUtils {
             ++pos;
         }
         return 1 << pos;
+    }
+
+    public static double screenMin(Context context) {
+        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        int screenWidth = dm.widthPixels;
+        int screenHeight = dm.heightPixels;
+        return (screenWidth > screenHeight) ? screenHeight : screenWidth;
     }
 }

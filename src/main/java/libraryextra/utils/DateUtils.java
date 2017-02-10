@@ -1,5 +1,6 @@
 package libraryextra.utils;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,6 +13,13 @@ import java.util.Locale;
  * @Description
  */
 public class DateUtils {
+    public static long getSecondsByMilliseconds(long milliseconds) {
+        // if (seconds == 0) {
+        // seconds = 1;
+        // }
+        return (long) new BigDecimal((float) ((float) milliseconds / (float) 1000)).setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+    }
+
     /**
      * 通过年份和月份 得到当月的日子
      *
@@ -171,7 +179,7 @@ public class DateUtils {
     }
 
     public static Date strToDate(String sTime, String s) {
-        SimpleDateFormat  parse= new SimpleDateFormat(s);
+        SimpleDateFormat parse = new SimpleDateFormat(s);
         Date date = null;
         try {
             date = parse.parse(sTime);
