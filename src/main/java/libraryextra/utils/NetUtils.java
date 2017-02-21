@@ -46,9 +46,17 @@ public class NetUtils {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        if (cm == null)
-            return false;
-        return cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+        return cm != null && cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+
+    }
+
+    /**
+     * 判断是否是移动连接
+     */
+    public static boolean isMobile(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm != null && cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_MOBILE;
 
     }
 
