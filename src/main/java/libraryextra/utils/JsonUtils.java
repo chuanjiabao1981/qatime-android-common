@@ -105,4 +105,28 @@ public class JsonUtils {
 
         return retList;
     }
+    public static <T> List<T> listFromJson(InputStream in, Class<T> clz) {
+        List<T> retList = new ArrayList<T>();
+        try {
+            JsonParser parser = new JsonParser();
+            JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+            JsonElement el = parser.parse(reader);
+            reader.close();
+            JsonArray jsonArray = null;
+            if (el.isJsonArray()) {
+                jsonArray = el.getAsJsonArray();
+            }
+
+            Iterator<JsonElement> iterator = jsonArray.iterator();
+            while (iterator.hasNext()) {
+                JsonElement temp = iterator.next();
+                T entity = sGson.fromJson(temp, clz);
+                retList.add(entity);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return retList;
+    }
 }
