@@ -48,6 +48,15 @@ public class StringUtils {
         return m.matches();
     }
 
+    /**
+     *
+     ***/
+    public static boolean isSelfQRcode(String qr) {
+        Pattern p = Pattern.compile("http://testing.qatime.cn/doc");
+        Matcher m = p.matcher(qr);
+        return m.matches();
+    }
+
     public static String getPYIndexStr(String strChinese) {
         if (strChinese.equals("阚")) {
             return "K";
@@ -247,11 +256,12 @@ public class StringUtils {
 
     /**
      * 获取带属性的字符串
+     *
      * @param context
      * @param resource
      * @return
      */
-    public static SpannedString getSpannedString(Context context,int resource) {
+    public static SpannedString getSpannedString(Context context, int resource) {
         // 新建一个可以添加属性的文本对象
         SpannableString ss = new SpannableString(context.getResources().getString(resource));
         // 新建一个属性对象,设置文字的大小
@@ -261,8 +271,10 @@ public class StringUtils {
         // 设置hint
         return new SpannedString(ss);
     }
+
     /**
      * 获取带属性的字符串
+     *
      * @return
      */
     public static SpannedString getSpannedString(String str) {
