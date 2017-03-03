@@ -52,9 +52,7 @@ public class StringUtils {
      *
      ***/
     public static boolean isSelfQRcode(String qr) {
-        Pattern p = Pattern.compile("http://testing.qatime.cn/doc");
-        Matcher m = p.matcher(qr);
-        return m.matches();
+        return !isNullOrBlanK(qr) && qr.contains("qatime");
     }
 
     public static String getPYIndexStr(String strChinese) {
