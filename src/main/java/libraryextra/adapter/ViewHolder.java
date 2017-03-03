@@ -78,6 +78,21 @@ public class ViewHolder {
         }
         return this;
     }
+    /**
+     * 为TextView设置字符串
+     *
+     * @param viewId
+     * @param text
+     * @return
+     */
+    public ViewHolder setText(int viewId, String text,int color) {
+        TextView view = getView(viewId);
+        if (!StringUtils.isNullOrBlanK(text)) {
+            view.setText(text);
+            view.setTextColor(color);
+        }
+        return this;
+    }
 
     /**
      * 为ImageView设置图片
