@@ -48,7 +48,7 @@ public class SystemNotifyBean implements Serializable {
         private boolean read;
         private String action_name;
         private String notice_content;
-        private String notificationable_type;
+        private String type;
         private String notificationable_id;
         private String link;
         private String created_at;
@@ -85,12 +85,12 @@ public class SystemNotifyBean implements Serializable {
             this.notice_content = notice_content;
         }
 
-        public String getNotificationable_type() {
-            return notificationable_type;
+        public String getType() {
+            return type;
         }
 
-        public void setNotificationable_type(String notificationable_type) {
-            this.notificationable_type = notificationable_type;
+        public void setType(String type) {
+            this.type = type;
         }
 
         public String getNotificationable_id() {
