@@ -78,6 +78,7 @@ public class ViewHolder {
         }
         return this;
     }
+
     /**
      * 为TextView设置字符串
      *
@@ -85,7 +86,7 @@ public class ViewHolder {
      * @param text
      * @return
      */
-    public ViewHolder setText(int viewId, String text,int color) {
+    public ViewHolder setText(int viewId, String text, int color) {
         TextView view = getView(viewId);
         if (!StringUtils.isNullOrBlanK(text)) {
             view.setText(text);
@@ -127,8 +128,7 @@ public class ViewHolder {
      * @return
      */
     public ViewHolder setImageByUrl(int viewId, String url) {
-//		ImageLoader.getInstance(3, Type.LIFO).loadImage(url, (ImageView) getView(viewId));
-        Glide.with(context).load(url).crossFade().into((ImageView) getView(viewId));
+        setImageByUrl(viewId, url, 0);
         return this;
     }
 
@@ -136,4 +136,8 @@ public class ViewHolder {
         return mPosition;
     }
 
+    public ViewHolder setImageByUrl(int viewId, String url, int defaultImage) {
+        Glide.with(context).load(url).crossFade().placeholder(defaultImage).into((ImageView) getView(viewId));
+        return this;
+    }
 }
