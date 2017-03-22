@@ -48,6 +48,8 @@ public class RemedialClassDetailBean implements Serializable {
 
         private String description;
 
+        private List<String> tag_list;
+
         private int lesson_count;
 
         private int preset_lesson_count;
@@ -80,6 +82,14 @@ public class RemedialClassDetailBean implements Serializable {
          */
 
         private int taste_count;
+
+        public List<String> getTag_list() {
+            return tag_list;
+        }
+
+        public void setTag_list(List<String> tag_list) {
+            this.tag_list = tag_list;
+        }
 
         public boolean isTasted() {
             return tasted;
