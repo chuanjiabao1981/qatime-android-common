@@ -30,7 +30,7 @@ public class MonthDateView extends View {
     private final ThreadLocal<Paint> mPaint = new ThreadLocal<>();
     private int mPreColor = Color.parseColor("#999999");
     private int mAfterColor = Color.parseColor("#333333");
-    private int mSelectBGColor = Color.parseColor("#be0b0b");
+    private int mSelectBGColor = Color.parseColor("#ff5842");
     private int mCurrentBGColor = Color.parseColor("#999999");
     private int mCurrYear, mCurrMonth, mCurrDay;
     private int mSelYear, mSelMonth, mSelDay;
