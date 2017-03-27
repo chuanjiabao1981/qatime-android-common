@@ -3,7 +3,6 @@ package libraryextra.bean;
 import java.io.Serializable;
 
 /**
-
  * @date 2016/8/31 15:27
  * @Description 跳转到订单详情页面所需的bean
  */

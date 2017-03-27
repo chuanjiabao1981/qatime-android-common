@@ -52,6 +52,7 @@ public class RemedialClassBean implements Serializable {
         public String getPreview_time() {
             return preview_time;
         }
+
         public void setId(int id) {
             this.id = id;
         }
