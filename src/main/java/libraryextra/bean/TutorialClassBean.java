@@ -78,9 +78,7 @@ public class TutorialClassBean implements Serializable {
         private int buy_tickets_count;
         private String status;
         private int preset_lesson_count;
-        private int completed_lesson_count;
         private int taste_count;
-        private int completed_lessons_count;
         private int closed_lessons_count;
         private String live_start_time;
         private String live_end_time;
@@ -191,14 +189,6 @@ public class TutorialClassBean implements Serializable {
             this.preset_lesson_count = preset_lesson_count;
         }
 
-        public int getCompleted_lesson_count() {
-            return completed_lesson_count;
-        }
-
-        public void setCompleted_lesson_count(int completed_lesson_count) {
-            this.completed_lesson_count = completed_lesson_count;
-        }
-
         public int getTaste_count() {
             return taste_count;
         }
@@ -207,13 +197,6 @@ public class TutorialClassBean implements Serializable {
             this.taste_count = taste_count;
         }
 
-        public int getCompleted_lessons_count() {
-            return completed_lessons_count;
-        }
-
-        public void setCompleted_lessons_count(int completed_lessons_count) {
-            this.completed_lessons_count = completed_lessons_count;
-        }
 
         public int getClosed_lessons_count() {
             return closed_lessons_count;
