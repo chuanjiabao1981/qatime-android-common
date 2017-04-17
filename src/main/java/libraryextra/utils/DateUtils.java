@@ -13,6 +13,15 @@ import java.util.Locale;
  * @Description
  */
 public class DateUtils {
+    public static String stringForTime(long position) {
+        int totalSeconds = (int) ((position / 1000.0) + 0.5);
+
+        int seconds = totalSeconds % 60;
+        int minutes = (totalSeconds / 60) % 60;
+        int hours = totalSeconds / 3600;
+        return String.format(Locale.CHINESE, "%02d:%02d:%02d", hours, minutes, seconds);
+    }
+
     public static long getSecondsByMilliseconds(long milliseconds) {
         // if (seconds == 0) {
         // seconds = 1;
