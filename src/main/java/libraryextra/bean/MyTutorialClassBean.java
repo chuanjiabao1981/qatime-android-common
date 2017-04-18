@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2016/8/15 10:03
  * @Description
  */
-public class TutorialClassBean implements Serializable {
+public class MyTutorialClassBean implements Serializable {
 
     /**
      * status : 1
@@ -82,8 +82,8 @@ public class TutorialClassBean implements Serializable {
         private int closed_lessons_count;
         private String live_start_time;
         private String live_end_time;
-        private Object objective;
-        private Object suit_crowd;
+        private String objective;
+        private String suit_crowd;
         private String publicize;
         private String pull_address;
         private String board_pull_stream;
@@ -222,19 +222,19 @@ public class TutorialClassBean implements Serializable {
             this.live_end_time = live_end_time;
         }
 
-        public Object getObjective() {
+        public String getObjective() {
             return objective;
         }
 
-        public void setObjective(Object objective) {
+        public void setObjective(String objective) {
             this.objective = objective;
         }
 
-        public Object getSuit_crowd() {
+        public String getSuit_crowd() {
             return suit_crowd;
         }
 
-        public void setSuit_crowd(Object suit_crowd) {
+        public void setSuit_crowd(String suit_crowd) {
             this.suit_crowd = suit_crowd;
         }
 

@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2016/8/15 10:03
  * @Description
  */
-public class InteractClassBean implements Serializable {
+public class MyInteractClassBean implements Serializable {
 
     /**
      * status : 1
@@ -277,18 +277,18 @@ public class InteractClassBean implements Serializable {
             private String nick_name;
             private String avatar_url;
             private String ex_big_avatar_url;
-            private Object login_mobile;
+            private String login_mobile;
             private String email;
             private String teaching_years;
             private String category;
             private String subject;
-            private Object gender;
-            private Object birthday;
+            private String gender;
+            private String birthday;
             private int province;
             private int city;
             private int school;
             private String desc;
-            private List<?> grade_range;
+            private List<String> grade_range;
 
             public int getId() {
                 return id;
@@ -330,11 +330,11 @@ public class InteractClassBean implements Serializable {
                 this.ex_big_avatar_url = ex_big_avatar_url;
             }
 
-            public Object getLogin_mobile() {
+            public String getLogin_mobile() {
                 return login_mobile;
             }
 
-            public void setLogin_mobile(Object login_mobile) {
+            public void setLogin_mobile(String login_mobile) {
                 this.login_mobile = login_mobile;
             }
 
@@ -370,19 +370,19 @@ public class InteractClassBean implements Serializable {
                 this.subject = subject;
             }
 
-            public Object getGender() {
+            public String getGender() {
                 return gender;
             }
 
-            public void setGender(Object gender) {
+            public void setGender(String gender) {
                 this.gender = gender;
             }
 
-            public Object getBirthday() {
+            public String getBirthday() {
                 return birthday;
             }
 
-            public void setBirthday(Object birthday) {
+            public void setBirthday(String birthday) {
                 this.birthday = birthday;
             }
 
@@ -418,11 +418,11 @@ public class InteractClassBean implements Serializable {
                 this.desc = desc;
             }
 
-            public List<?> getGrade_range() {
+            public List<String> getGrade_range() {
                 return grade_range;
             }
 
-            public void setGrade_range(List<?> grade_range) {
+            public void setGrade_range(List<String> grade_range) {
                 this.grade_range = grade_range;
             }
         }
