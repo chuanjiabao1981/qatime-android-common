@@ -103,7 +103,7 @@ public class DateUtils {
         } else if (isSameWeekDates(currentTime, today)) {
             dataString = getWeekOfDate(currentTime);
         } else {
-            SimpleDateFormat dateformatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat dateformatter = new SimpleDateFormat("MM-dd", Locale.getDefault());
             dataString = dateformatter.format(currentTime);
         }
 
