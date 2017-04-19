@@ -81,7 +81,17 @@ public class InteractCourseDetailBean implements Serializable {
         private int preview_time;
         private boolean is_bought;
         private List<InteractiveLessonsBean> interactive_lessons;
+        private List<TeacherBean> teachers;
         private Icons icons;
+
+
+        public List<TeacherBean> getTeachers() {
+            return teachers;
+        }
+
+        public void setTeachers(List<TeacherBean> teachers) {
+            this.teachers = teachers;
+        }
 
         public Icons getIcons() {
             return icons;
