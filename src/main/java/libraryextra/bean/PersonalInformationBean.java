@@ -49,7 +49,7 @@ public class PersonalInformationBean implements Serializable {
 
         private String login_mobile;
 
-        private Profile.Chat_account chat_account;
+        private ChatAccount chat_account;
 
         private String email;
 
@@ -78,7 +78,7 @@ public class PersonalInformationBean implements Serializable {
         private String teaching_years;
         private String category;
         private String subject;
-        private List<?> grade_range;
+        private List<String> grade_range;
 
         public String getOpenid() {
             return openid;
@@ -88,11 +88,11 @@ public class PersonalInformationBean implements Serializable {
             this.openid = openid;
         }
 
-        public Profile.Chat_account getChat_account() {
+        public ChatAccount getChat_account() {
             return chat_account;
         }
 
-        public void setChat_account(Profile.Chat_account chat_account) {
+        public void setChat_account(ChatAccount chat_account) {
             this.chat_account = chat_account;
         }
 
@@ -240,11 +240,11 @@ public class PersonalInformationBean implements Serializable {
             this.subject = subject;
         }
 
-        public List<?> getGrade_range() {
+        public List<String> getGrade_range() {
             return grade_range;
         }
 
-        public void setGrade_range(List<?> grade_range) {
+        public void setGrade_range(List<String> grade_range) {
             this.grade_range = grade_range;
         }
     }

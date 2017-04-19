@@ -67,9 +67,10 @@ public class Profile implements Serializable {
 
         private String email;
 
-        private Chat_account chat_account;
+        private ChatAccount chat_account;
 
         private String openid;
+
 
         public String getAvatar_url() {
             return avatar_url;
@@ -103,11 +104,11 @@ public class Profile implements Serializable {
             this.email = email;
         }
 
-        public Chat_account getChat_account() {
+        public ChatAccount getChat_account() {
             return chat_account;
         }
 
-        public void setChat_account(Chat_account chat_account) {
+        public void setChat_account(ChatAccount chat_account) {
             this.chat_account = chat_account;
         }
 
@@ -141,54 +142,6 @@ public class Profile implements Serializable {
 
         public void setOpenid(String openid) {
             this.openid = openid;
-        }
-    }
-
-    public class Chat_account implements Serializable {
-        private int user_id;
-        private String accid;
-        private String token;
-        private String name;
-        private String icon;
-
-        public int getUser_id() {
-            return user_id;
-        }
-
-        public void setUser_id(int user_id) {
-            this.user_id = user_id;
-        }
-
-        public String getAccid() {
-            return accid;
-        }
-
-        public void setAccid(String accid) {
-            this.accid = accid;
-        }
-
-        public String getToken() {
-            return token;
-        }
-
-        public void setToken(String token) {
-            this.token = token;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getIcon() {
-            return icon;
-        }
-
-        public void setIcon(String icon) {
-            this.icon = icon;
         }
     }
 }
