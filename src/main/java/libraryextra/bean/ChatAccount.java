@@ -1,6 +1,8 @@
 package libraryextra.bean;
 
-public class ChatAccount {
+import java.io.Serializable;
+
+public class ChatAccount implements Serializable {
     /**
      * user_id : 406
      * accid : c51d5109228be3a04dc2e5e7d37aacb0

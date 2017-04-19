@@ -1,6 +1,8 @@
 package libraryextra.bean;
 
-public class Lessons {
+import java.io.Serializable;
+
+public class Lessons implements Serializable {
         /**
          * id : 78
          * name : 初中历史

@@ -3,7 +3,7 @@ package libraryextra.bean;
 import java.io.Serializable;
 import java.util.List;
 
-public class ChatTeamBean {
+public class ChatTeamBean implements Serializable {
     /**
      * announcement : null
      * team_id : 28054274

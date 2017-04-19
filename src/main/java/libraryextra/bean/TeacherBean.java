@@ -1,8 +1,9 @@
 package libraryextra.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TeacherBean {
+public class TeacherBean implements Serializable {
     /**
      * id : 406
      * name : 史晓军
