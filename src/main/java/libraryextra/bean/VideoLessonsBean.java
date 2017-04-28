@@ -1,80 +1,88 @@
 package libraryextra.bean;
 
-public  class VideoLessonsBean {
-        /**
-         * id : 4
-         * name : 第一学时
-         * status : init
-         * video_course_id : 3
-         * real_time : 0
-         * pos : 1
-         * video : {"id":7767,"token":"1492157139451","video_type":"mp4","duration":2,"tmp_duration":2,"format_tmp_duration":"00:00:02","capture":"http://qatime-testing.oss-cn-beijing.aliyuncs.com/videos/capture/96fcf0349390a9ddccd8871c868d070a.jpg"}
-         */
+public class VideoLessonsBean {
+    /**
+     * id : 4
+     * name : 第一学时
+     * status : init
+     * video_course_id : 3
+     * real_time : 0
+     * pos : 1
+     * video : {"id":7767,"token":"1492157139451","video_type":"mp4","duration":2,"tmp_duration":2,"format_tmp_duration":"00:00:02","capture":"http://qatime-testing.oss-cn-beijing.aliyuncs.com/videos/capture/96fcf0349390a9ddccd8871c868d070a.jpg"}
+     */
 
-        private int id;
-        private String name;
-        private String status;
-        private int video_course_id;
-        private int real_time;
-        private int pos;
-        private VideoBean video;
+    private int id;
+    private String name;
+    private String status;
+    private int video_course_id;
+    private int real_time;
+    private int pos;
+    private VideoBean video;
+    private boolean tastable;
 
+    public boolean isTastable() {
+        return tastable;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public void setTastable(boolean tastable) {
+        this.tastable = tastable;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public int getId() {
+        return id;
+    }
 
-        public String getName() {
-            return name;
-        }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public String getStatus() {
-            return status;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public void setStatus(String status) {
-            this.status = status;
-        }
+    public String getStatus() {
+        return status;
+    }
 
-        public int getVideo_course_id() {
-            return video_course_id;
-        }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-        public void setVideo_course_id(int video_course_id) {
-            this.video_course_id = video_course_id;
-        }
+    public int getVideo_course_id() {
+        return video_course_id;
+    }
 
-        public int getReal_time() {
-            return real_time;
-        }
+    public void setVideo_course_id(int video_course_id) {
+        this.video_course_id = video_course_id;
+    }
 
-        public void setReal_time(int real_time) {
-            this.real_time = real_time;
-        }
+    public int getReal_time() {
+        return real_time;
+    }
 
-        public int getPos() {
-            return pos;
-        }
+    public void setReal_time(int real_time) {
+        this.real_time = real_time;
+    }
 
-        public void setPos(int pos) {
-            this.pos = pos;
-        }
+    public int getPos() {
+        return pos;
+    }
 
-        public VideoBean getVideo() {
-            return video;
-        }
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
 
-        public void setVideo(VideoBean video) {
-            this.video = video;
-        }
+    public VideoBean getVideo() {
+        return video;
+    }
+
+    public void setVideo(VideoBean video) {
+        this.video = video;
+    }
 
 
     public static class VideoBean {
