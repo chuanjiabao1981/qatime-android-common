@@ -104,7 +104,15 @@ public class VideoLessonsBean {
         private String format_tmp_duration;
         private String capture;
         private String name_url;
+        private boolean tastable;
 
+        public boolean isTastable() {
+            return tastable;
+        }
+
+        public void setTastable(boolean tastable) {
+            this.tastable = tastable;
+        }
         public String getName_url() {
             return name_url;
         }
