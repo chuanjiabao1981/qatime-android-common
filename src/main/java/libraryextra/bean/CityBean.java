@@ -34,7 +34,7 @@ public class CityBean {
         public Data(String name) {
             this.name = name;
             this.province_id = "0";
-            this.id = 0;
+            this.id = "0";
         }
 
         @Override
@@ -53,7 +53,7 @@ public class CityBean {
             return name.hashCode();
         }
 
-        private int id;
+        private String id;
 
         private String province_id;
 
@@ -87,11 +87,11 @@ public class CityBean {
             this.firstLetters = firstLetters;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
-        public int getId() {
+        public String getId() {
             return this.id;
         }
 
