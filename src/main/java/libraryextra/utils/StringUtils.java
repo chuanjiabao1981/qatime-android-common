@@ -8,6 +8,7 @@ import android.text.style.AbsoluteSizeSpan;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -284,5 +285,9 @@ public class StringUtils {
         ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         // 设置hint
         return new SpannedString(ss);
+    }
+
+    public static String getPercentString(float var0) {
+        return String.format(Locale.US, "%d%%", new Object[]{Integer.valueOf((int)(var0 * 100.0F))});
     }
 }
