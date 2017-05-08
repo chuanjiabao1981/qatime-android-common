@@ -1,5 +1,6 @@
 package libraryextra.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * @date 2016/8/12 14:41
  * @Description 基础数据  学校
  */
-public class SchoolBean {
+public class SchoolBean implements Serializable{
 
     private int status;
 
@@ -29,7 +30,7 @@ public class SchoolBean {
         return this.data;
     }
 
-    public class Data {
+    public class Data implements Serializable {
         private int id;
 
         private int city_id;
