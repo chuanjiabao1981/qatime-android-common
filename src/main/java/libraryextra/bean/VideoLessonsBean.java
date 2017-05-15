@@ -19,6 +19,15 @@ public class VideoLessonsBean {
     private int pos;
     private VideoBean video;
     private boolean tastable;
+    private boolean visited = false;//标识是否已观看
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
 
     public boolean isTastable() {
         return tastable;
@@ -113,6 +122,7 @@ public class VideoLessonsBean {
         public void setTastable(boolean tastable) {
             this.tastable = tastable;
         }
+
         public String getName_url() {
             return name_url;
         }

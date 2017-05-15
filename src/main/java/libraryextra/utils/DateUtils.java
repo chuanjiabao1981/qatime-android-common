@@ -197,4 +197,9 @@ public class DateUtils {
         }
         return date;
     }
+
+    public static String getMMddHHmmss(long date) {
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm:ss");
+        return format.format(date);
+    }
 }
