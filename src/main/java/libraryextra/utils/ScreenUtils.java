@@ -145,4 +145,9 @@ public class ScreenUtils {
     public static double getDialogWidth(Context context) {
         return getScreenWidth(context) * 0.85;
     }
+
+    public static double getDensity(Context context) {
+        DisplayMetrics dm = context.getApplicationContext().getResources().getDisplayMetrics();
+        return dm.density;
+    }
 }
