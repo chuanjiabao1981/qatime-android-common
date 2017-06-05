@@ -45,7 +45,6 @@ public class MyInteractClassBean implements Serializable {
         private String publicize_list_url;
         private String publicize_app_url;
         private String chat_team_id;
-        private int created_at;
         private IconsBean icons;
         private int preview_time;
         private boolean is_bought;
@@ -201,14 +200,6 @@ public class MyInteractClassBean implements Serializable {
 
         public void setChat_team_id(String chat_team_id) {
             this.chat_team_id = chat_team_id;
-        }
-
-        public int getCreated_at() {
-            return created_at;
-        }
-
-        public void setCreated_at(int created_at) {
-            this.created_at = created_at;
         }
 
         public IconsBean getIcons() {
