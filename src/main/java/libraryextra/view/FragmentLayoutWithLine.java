@@ -75,7 +75,7 @@ public class FragmentLayoutWithLine extends LinearLayout implements ViewPager.On
         this.setOrientation(LinearLayout.VERTICAL);
         FrameLayout tabFrame = (FrameLayout) View.inflate(context, tabLayoutId, null);
         tabLayout = (LinearLayout) (tabFrame.findViewById(R.id.tabLayout));
-        tabLayout.setLayoutParams(new android.widget.FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        tabLayout.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
         this.list = list;
         fragmentAdapter = new Fragment_viewpager_Adapter(context.getSupportFragmentManager());
         viewPager = new MyViewPager(context);

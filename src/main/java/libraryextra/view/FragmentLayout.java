@@ -11,10 +11,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.List;
+
+import cn.qatime.player.libraryextra.R;
 
 public class FragmentLayout extends LinearLayout implements ViewPager.OnPageChangeListener {
     private List<Fragment> list;
@@ -69,8 +72,9 @@ public class FragmentLayout extends LinearLayout implements ViewPager.OnPageChan
      */
     public void setAdapter(List<Fragment> list, int tabLayoutId, int id) {
         this.setOrientation(LinearLayout.VERTICAL);
-        tabLayout = (LinearLayout) View.inflate(context, tabLayoutId, null);
-        tabLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
+        FrameLayout tabFrame = (FrameLayout) View.inflate(context, tabLayoutId, null);
+        tabLayout =  (LinearLayout) (tabFrame.findViewById(R.id.tabLayout));
+        tabLayout.setLayoutParams(new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT));
         this.list = list;
         fragmentAdapter = new Fragment_viewpager_Adapter(context.getSupportFragmentManager());
@@ -81,9 +85,9 @@ public class FragmentLayout extends LinearLayout implements ViewPager.OnPageChan
         viewPager.setId(id);
         if (whereTab == 0) {
             this.addView(viewPager);
-            this.addView(tabLayout);
+            this.addView(tabFrame);
         } else {
-            this.addView(tabLayout);
+            this.addView(tabFrame);
             this.addView(viewPager);
         }
         for (int i = 0; i < tabLayout.getChildCount(); i++) {
