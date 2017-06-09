@@ -21,7 +21,7 @@ public class Profile implements Serializable {
     }
 
     public Data getData() {
-        return this.data;
+        return this.data == null ? new Data() : this.data;
     }
 
     public String getToken() {
@@ -47,7 +47,7 @@ public class Profile implements Serializable {
         }
 
         public User getUser() {
-            return this.user;
+            return this.user == null ? new User() : this.user;
         }
 
     }
