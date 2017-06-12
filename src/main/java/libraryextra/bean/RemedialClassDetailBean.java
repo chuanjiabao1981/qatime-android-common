@@ -67,6 +67,15 @@ public class RemedialClassDetailBean implements Serializable {
         private List<Lessons> lessons;
         private Icons icons;
         private boolean off_shelve;
+        private boolean taste_overflow;
+
+        public boolean isTaste_overflow() {
+            return taste_overflow;
+        }
+
+        public void setTaste_overflow(boolean taste_overflow) {
+            this.taste_overflow = taste_overflow;
+        }
 
         public boolean isOff_shelve() {
             return off_shelve;

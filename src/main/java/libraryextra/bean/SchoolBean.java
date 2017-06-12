@@ -33,7 +33,7 @@ public class SchoolBean implements Serializable{
     public class Data implements Serializable {
         private int id;
 
-        private int city_id;
+        private String city_id;
 
         private String name;
 
@@ -45,11 +45,11 @@ public class SchoolBean implements Serializable{
             return this.id;
         }
 
-        public void setCity_id(int city_id) {
+        public void setCity_id(String city_id) {
             this.city_id = city_id;
         }
 
-        public int getCity_id() {
+        public String getCity_id() {
             return this.city_id;
         }
 
