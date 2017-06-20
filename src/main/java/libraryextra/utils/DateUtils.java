@@ -14,12 +14,26 @@ import java.util.Locale;
  */
 public class DateUtils {
     public static String stringForTime(long position) {
+        return stringForTime(position, false);
+    }
+
+    /**
+     *
+     * @param position
+     * @param isCh 是否转换为中文
+     * @return
+     */
+    public static String stringForTime(long position, boolean isCh) {
         int totalSeconds = (int) ((position / 1000.0) + 0.5);
 
         int seconds = totalSeconds % 60;
         int minutes = (totalSeconds / 60) % 60;
         int hours = totalSeconds / 3600;
-        return String.format(Locale.CHINESE, "%02d:%02d:%02d", hours, minutes, seconds);
+        if (isCh) {
+            return String.format(Locale.CHINESE, "%02d时%02d分%02d秒", hours, minutes, seconds);
+        } else {
+            return String.format(Locale.CHINESE, "%02d:%02d:%02d", hours, minutes, seconds);
+        }
     }
 
     public static long getSecondsByMilliseconds(long milliseconds) {
