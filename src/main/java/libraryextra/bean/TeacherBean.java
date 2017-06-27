@@ -44,9 +44,9 @@ public class TeacherBean implements Serializable {
     private int province;
     private int city;
     private int school;
+    private String school_name;
     private String desc;
     private List<String> grade_range;
-
 
 
     public int getId() {
@@ -183,6 +183,14 @@ public class TeacherBean implements Serializable {
 
     public void setSchool(int school) {
         this.school = school;
+    }
+
+    public String getSchool_name() {
+        return school_name;
+    }
+
+    public void setSchool_name(String school_name) {
+        this.school_name = school_name;
     }
 
     public String getDesc() {
