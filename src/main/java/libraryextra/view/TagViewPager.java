@@ -259,7 +259,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
                 }
             }
         } else {
-            if (tagImageId_nomorl != 0) {
+            if (tagImageId_nomorl != 0&&currentItem < imageList.size()) {
                 imageList.get(currentItem).setImageResource(tagImageId_nomorl);
             }
             currentItem = arg0 % this.count;
@@ -278,7 +278,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
             return;
         }
         int count = viewPager.getCurrentItem();
-        if (tagImageId_nomorl != 0) {
+        if (tagImageId_nomorl != 0&&currentItem < imageList.size()) {
             imageList.get(currentItem).setImageResource(tagImageId_nomorl);
         }
         viewPager.setCurrentItem(++count);

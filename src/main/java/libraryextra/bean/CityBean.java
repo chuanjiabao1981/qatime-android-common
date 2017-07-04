@@ -8,7 +8,7 @@ import java.util.List;
  * @date 2016/8/12 14:41
  * @Description 基础数据  城市
  */
-public class CityBean {
+public class CityBean implements Serializable {
 
     private int status;
 
@@ -61,14 +61,14 @@ public class CityBean {
         private String firstLetter;
         private String firstLetters;
 
-        private int workstations_count;
+        private int workstation_id;
 
-        public int getWorkstations_count() {
-            return workstations_count;
+        public int getWorkstation_id() {
+            return workstation_id;
         }
 
-        public void setWorkstations_count(int workstations_count) {
-            this.workstations_count = workstations_count;
+        public void setWorkstation_id(int workstation_id) {
+            this.workstation_id = workstation_id;
         }
 
         public String getFirstLetter() {
