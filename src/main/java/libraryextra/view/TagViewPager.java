@@ -173,6 +173,7 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
     public void notifyChanged(int count) {
         this.count = count;
         adapter.notifyDataSetChanged();
+        viewPager.setCurrentItem(0);
         initTagImage(count, 0);
         if (isAutoNext && count > 1) {
             hd.removeCallbacks(this);
