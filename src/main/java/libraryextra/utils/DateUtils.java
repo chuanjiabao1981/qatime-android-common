@@ -24,7 +24,8 @@ public class DateUtils {
      * @return
      */
     public static String stringForTime(long position, boolean isCh) {
-        int totalSeconds = (int) ((position / 1000.0) + 0.5);
+        //后台返回秒，播放器返回毫秒
+        int totalSeconds =isCh ? (int)position : (int) ((position / 1000.0) + 0.5);
 
         int seconds = totalSeconds % 60;
         int minutes = (totalSeconds / 60) % 60;
