@@ -173,25 +173,13 @@ public class TagViewPager extends RelativeLayout implements ViewPager.OnPageChan
     public void notifyChanged(int count) {
         this.count = count;
         adapter.notifyDataSetChanged();
-        viewPager.setCurrentItem(0);
-        initTagImage(count, 0);
+        initTagImage(count,viewPager.getCurrentItem() % this.count);
         if (isAutoNext && count > 1) {
             hd.removeCallbacks(this);
             hd.postDelayed(this, autoNextTime);
         }
     }
 
-    public void setCurrentItem(int position) {
-        viewPager.setCurrentItem(position);
-    }
-
-    ;
-
-    public int getCurrentItem() {
-        return viewPager.getCurrentItem();
-    }
-
-    ;
 
     /**
      * @param count2 viewpager实际数据数量
