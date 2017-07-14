@@ -288,6 +288,6 @@ public class StringUtils {
     }
 
     public static String getPercentString(float var0) {
-        return String.format(Locale.US, "%d%%", new Object[]{Integer.valueOf((int)(var0 * 100.0F))});
+        return String.format(Locale.US, "%d%%", new Object[]{(int) (var0 * 100.0F)});
     }
 }

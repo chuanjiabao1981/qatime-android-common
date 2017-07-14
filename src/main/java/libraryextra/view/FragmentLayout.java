@@ -218,18 +218,11 @@ public class FragmentLayout extends LinearLayout implements ViewPager.OnPageChan
 
         @Override
         public boolean onTouchEvent(MotionEvent arg0) {
-            if (isScorllToNext) {
-                return super.onTouchEvent(arg0);
-            }
-            return false;
+            return isScorllToNext && super.onTouchEvent(arg0);
         }
 
         @Override
         public boolean onInterceptTouchEvent(MotionEvent ev) {
-            if (isScorllToNext == false) {
-                return false;
-            } else {
-                return super.onInterceptTouchEvent(ev);
-            }
+            return isScorllToNext != false && super.onInterceptTouchEvent(ev);
         }
     }}

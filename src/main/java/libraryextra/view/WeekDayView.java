@@ -71,7 +71,7 @@ public class WeekDayView extends View {
             int fontWidth = (int) paint.measureText(text);
             int startX = columnWidth * i + (columnWidth - fontWidth) / 2;
             int startY = (int) (height / 2 - (paint.ascent() + paint.descent()) / 2);
-            if (text.indexOf("周日") > -1 || text.indexOf("周六") > -1) {
+            if (text.contains("周日") || text.contains("周六")) {
                 paint.setColor(mWeekendColor);
             } else {
                 paint.setColor(mWeedayColor);

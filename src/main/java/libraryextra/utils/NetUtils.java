@@ -9,7 +9,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
 
-import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;

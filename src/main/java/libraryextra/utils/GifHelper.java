@@ -502,7 +502,7 @@ public class GifHelper {
 
     // to get Stream - Head
     protected void readHeader() {
-        StringBuffer id = new StringBuffer();
+        StringBuilder id = new StringBuilder();
         for (int i = 0; i < 6; i++) {
             id.append((char) read());
         }
