@@ -13,23 +13,46 @@ import java.util.Locale;
  * @Description
  */
 public class DateUtils {
-    public static String stringForTime(long position) {
-        return stringForTime(position, false);
+    public static String stringForTime_ms(long position) {
+        return stringForTime_ms(position, false);
     }
 
     /**
+     * 格式化毫秒
      *
      * @param position
-     * @param isCh 是否转换为中文
+     * @param isCh     是否转换为中文
      * @return
      */
-    public static String stringForTime(long position, boolean isCh) {
-        //后台返回秒，播放器返回毫秒
-        int totalSeconds =isCh ? (int)position : (int) ((position / 1000.0) + 0.5);
+    public static String stringForTime_ms(long position, boolean isCh) {
+        int totalSeconds = (int) ((position / 1000.0) + 0.5);
 
         int seconds = totalSeconds % 60;
         int minutes = (totalSeconds / 60) % 60;
         int hours = totalSeconds / 3600;
+        if (isCh) {
+            return String.format(Locale.CHINESE, "%02d时%02d分%02d秒", hours, minutes, seconds);
+        } else {
+            return String.format(Locale.CHINESE, "%02d:%02d:%02d", hours, minutes, seconds);
+        }
+    }
+
+    public static String stringForTime_s(int position) {
+        return stringForTime_s(position, false);
+    }
+
+    /**
+     * 格式化秒
+     *
+     * @param position
+     * @param isCh     是否转换为中文
+     * @return
+     */
+    public static String stringForTime_s(int position, boolean isCh) {
+
+        int seconds = position % 60;
+        int minutes = (position / 60) % 60;
+        int hours = position / 3600;
         if (isCh) {
             return String.format(Locale.CHINESE, "%02d时%02d分%02d秒", hours, minutes, seconds);
         } else {
