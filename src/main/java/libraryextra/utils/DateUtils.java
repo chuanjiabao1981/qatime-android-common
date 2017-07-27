@@ -242,6 +242,7 @@ public class DateUtils {
     }
 
     public static int daysBetween(String smdate, long time2) throws ParseException {
+        if (StringUtils.isNullOrBlanK(smdate)) return 0;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Calendar cal = Calendar.getInstance();
         cal.setTime(sdf.parse(smdate));
