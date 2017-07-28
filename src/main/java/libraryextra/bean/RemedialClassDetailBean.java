@@ -68,6 +68,15 @@ public class RemedialClassDetailBean implements Serializable {
         private Icons icons;
         private boolean off_shelve;
         private boolean taste_overflow;
+        private String sell_type;
+
+        public String getSell_type() {
+            return sell_type;
+        }
+
+        public void setSell_type(String sell_type) {
+            this.sell_type = sell_type;
+        }
 
         public boolean isTaste_overflow() {
             return taste_overflow;
