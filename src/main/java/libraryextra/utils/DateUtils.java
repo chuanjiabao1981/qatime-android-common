@@ -241,7 +241,24 @@ public class DateUtils {
         return format.format(date);
     }
 
+    public static int daysBetween(Date smdate, long time2) {
+        if (StringUtils.isNullOrBlanK(smdate)) return 0;
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(smdate);
+        long time1 = cal.getTimeInMillis();
+        long between_days = (time1 - time2) / (1000 * 3600 * 24);
+
+        return Integer.parseInt(String.valueOf(between_days));
+    }
+
+    public static int daysBetween(long smdate, long time2) {
+        long time1 = smdate;
+        long between_days = (time1 - time2) / (1000 * 3600 * 24);
+        return Integer.parseInt(String.valueOf(between_days));
+    }
+
     public static int daysBetween(String smdate, long time2) throws ParseException {
+        if (StringUtils.isNullOrBlanK(smdate)) return 0;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Calendar cal = Calendar.getInstance();
         cal.setTime(sdf.parse(smdate));
@@ -250,4 +267,5 @@ public class DateUtils {
 
         return Integer.parseInt(String.valueOf(between_days));
     }
+
 }
