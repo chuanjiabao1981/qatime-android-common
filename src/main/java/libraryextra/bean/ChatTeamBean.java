@@ -12,18 +12,8 @@ public class ChatTeamBean implements Serializable {
      */
     ;
 
-    private Announcements.DataBean.AnnouncementsBean announcement;
     private String team_id;
-    private List<Team_announcements> team_announcements;
     private List<Accounts> accounts;
-
-    public Announcements.DataBean.AnnouncementsBean getAnnouncement() {
-        return announcement;
-    }
-
-    public void setAnnouncement(Announcements.DataBean.AnnouncementsBean announcement) {
-        this.announcement = announcement;
-    }
 
     public String getTeam_id() {
         return team_id;
@@ -31,14 +21,6 @@ public class ChatTeamBean implements Serializable {
 
     public void setTeam_id(String team_id) {
         this.team_id = team_id;
-    }
-
-    public List<Team_announcements> getTeam_announcements() {
-        return team_announcements;
-    }
-
-    public void setTeam_announcements(List<Team_announcements> team_announcements) {
-        this.team_announcements = team_announcements;
     }
 
     public List<Accounts> getAccounts() {
@@ -55,6 +37,7 @@ public class ChatTeamBean implements Serializable {
         private String name;
 
         private String icon;
+        private String firstLetters;
 
         public void setAccid(String accid) {
             this.accid = accid;
@@ -80,6 +63,13 @@ public class ChatTeamBean implements Serializable {
             return this.icon;
         }
 
+        public void setFirstLetters(String firstLetters) {
+            this.firstLetters = firstLetters;
+        }
+
+        public String getFirstLetters() {
+            return firstLetters;
+        }
     }
 
     public static class Team_announcements implements Serializable {
