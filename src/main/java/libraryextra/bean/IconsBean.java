@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class IconsBean implements Serializable{
     /**
-     * free_taste : false
-     * coupon_free : true
-     * cheap_moment : false
-     * refund_any_time : true
-     * join_cheap : false
+     * free_taste : false 免费试听
+     * coupon_free : true 报名立减
+     * cheap_moment : false  限时优惠
+     * refund_any_time : true 随时可退
+     * join_cheap : false 插班优惠
      */
 
     private boolean free_taste;
