@@ -18,8 +18,6 @@ package libraryextra.rx.subscriber;
 
 import android.content.Context;
 
-import com.orhanobut.logger.Logger;
-
 import java.lang.ref.WeakReference;
 
 import io.reactivex.annotations.NonNull;

@@ -16,6 +16,8 @@
 
 package libraryextra.rx.callback;
 
+import android.app.Activity;
+
 import java.lang.reflect.Type;
 
 import libraryextra.rx.exception.ApiException;
@@ -25,13 +27,16 @@ import libraryextra.rx.utils.Utils;
  * <p>描述：网络请求回调</p>
  */
 public abstract class CallBack<T> implements IType<T> {
+    public CallBack() {
+    }
+
     public abstract void onStart();
 
     public abstract void onCompleted();
 
-    public abstract void onError(ApiException e);
-
     public abstract void onSuccess(T t);
+
+    public abstract void onError(ApiException e);
 
     @Override
     public Type getType() {//获取需要解析的泛型T类型

@@ -10,7 +10,10 @@ import javax.net.ssl.SSLSession;
 
 import libraryextra.rx.model.HttpHeaders;
 import libraryextra.rx.model.HttpParams;
+import libraryextra.rx.request.DownloadRequest;
 import libraryextra.rx.request.GetRequest;
+import libraryextra.rx.request.PostRequest;
+import libraryextra.rx.request.PutRequest;
 import libraryextra.utils.StringUtils;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -174,9 +177,9 @@ public class HttpManager {
     /**
      * post请求
      */
-//    public static PostRequest post(String url) {
-//        return new PostRequest(url);
-//    }
+    public static PostRequest post(String url) {
+        return new PostRequest(url);
+    }
 
 
 //    /**
@@ -192,13 +195,13 @@ public class HttpManager {
 //    public static CustomRequest custom() {
 //        return new CustomRequest();
 //    }
-//    public static DownloadRequest downLoad(String url) {
-//        return new DownloadRequest(url);
-//    }
+    public static DownloadRequest downLoad(String url) {
+        return new DownloadRequest(url);
+    }
 
-//    public static PutRequest put(String url) {
-//        return new PutRequest(url);
-//    }
+    public static PutRequest put(String url) {
+        return new PutRequest(url);
+    }
 
 
     /**
