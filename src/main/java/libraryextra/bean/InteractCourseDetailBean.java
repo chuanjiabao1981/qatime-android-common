@@ -289,6 +289,15 @@ public class InteractCourseDetailBean implements Serializable {
                 private String end_time;
                 private String status;
                 private TeacherBean teacher;
+                private boolean replayable;
+
+                public boolean isReplayable() {
+                    return replayable;
+                }
+
+                public void setReplayable(boolean replayable) {
+                    this.replayable = replayable;
+                }
 
                 public int getId() {
                     return id;
