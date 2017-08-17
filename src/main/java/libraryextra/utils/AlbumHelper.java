@@ -163,7 +163,7 @@ public class AlbumHelper {
      * 得到图片集
      */
     private void buildImagesBucketList() {
-        long startTime = System.currentTimeMillis();
+//        long startTime = System.currentTimeMillis();
 
         // 构造缩略图索引
         getThumbnail();
@@ -239,8 +239,8 @@ public class AlbumHelper {
 //            }
 //        }
         hasBuildImagesBucketList = true;
-        long endTime = System.currentTimeMillis();
-        Logger.e("use time: " + (endTime - startTime) + " ms");
+//        long endTime = System.currentTimeMillis();
+//        Logger.e("use time: " + (endTime - startTime) + " ms");
     }
 
     /**
