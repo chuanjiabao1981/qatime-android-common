@@ -62,7 +62,7 @@ public class PostRequest extends BaseBodyRequest<PostRequest> {
     }
 
     public <T> Disposable execute(CallBackProxy<? extends ApiResult<T>, T> proxy) {
-        Observable<ApiResult<T>> observable = build().toObservable(apiManager.get(url, params.urlParamsMap), proxy);
+        Observable<ApiResult<T>> observable = build().toObservable(generateRequest(), proxy);
 
         return observable.subscribeWith(new CallBackSubscriber<ApiResult<T>>(context, proxy.getCallBack()));
     }
