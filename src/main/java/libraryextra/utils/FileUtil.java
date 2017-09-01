@@ -34,7 +34,7 @@ public class FileUtil {
      */
     public static List<File> getSpecificTypeOfFile(Context context, String[] extension) {
         List<File> list = new ArrayList<>();
-        if(context==null){
+        if (context == null) {
             return list;
         }
         //从外存中获取
@@ -57,13 +57,17 @@ public class FileUtil {
         ContentResolver resolver = context.getContentResolver();
         //获取游标
         Cursor cursor = resolver.query(fileUri, projection, selection, null, sortOrder);
-        if (cursor != null){
+        if (cursor != null) {
             //游标从最后开始往前递减，以此实现时间递减顺序（最近访问的文件，优先显示）
             if (cursor.moveToLast()) {
                 do {
                     //输出文件的完整路径
                     String data = cursor.getString(0);
-                    list.add(new File(data));
+
+                    File file = new File(data);
+                    if (file.exists() && !file.isHidden() && file.canRead()) {
+                        list.add(file);
+                    }
                 } while (cursor.moveToPrevious());
             }
             cursor.close();
