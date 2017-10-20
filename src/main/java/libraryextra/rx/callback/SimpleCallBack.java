@@ -37,7 +37,7 @@ public abstract class SimpleCallBack<T> extends CallBack<T> {
 
     @Override
     public void onError(ApiException e) {
-        Logger.e("异常异常");
+        Logger.e(e);
     }
 
 }
