@@ -20,7 +20,7 @@ public class SideBar extends View {
     // 触摸事件
     private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
     // 26个字母
-    public static String[] b = {"最近", "全国", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    public static String[] b = {"最近","推荐", "全国", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private int choose = 0;// 选中
     private Paint paint = new Paint();
 
@@ -63,7 +63,7 @@ public class SideBar extends View {
             // paint.setColor(Color.WHITE);
             paint.setTypeface(Typeface.DEFAULT);
             paint.setAntiAlias(true);
-            if (i == 0 || i == 1) {
+            if (i <= 2) {
                 paint.setTextSize(35);
             } else {
                 paint.setTextSize(50);
