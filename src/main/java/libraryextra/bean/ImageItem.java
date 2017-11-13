@@ -26,7 +26,7 @@ public class ImageItem implements Serializable {
         return imagePath != null ? imagePath.hashCode() : 0;
     }
 
-    public enum Status {
+    public enum Status implements Serializable {
         NONE,UPLOADING,SUCCESS,ERROR
     }
 }
