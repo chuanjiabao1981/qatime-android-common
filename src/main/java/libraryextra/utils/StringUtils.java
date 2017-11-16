@@ -290,4 +290,10 @@ public class StringUtils {
     public static String getPercentString(float var0) {
         return String.format(Locale.US, "%d%%", new Object[]{(int) (var0 * 100.0F)});
     }
+
+    public static boolean isGoodUrl(String url) {
+        Pattern p = Pattern.compile("^(?=^.{3,255}$)(http(s)?:\\/\\/)?(www\\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+(:\\d+)*(\\/\\w+\\.\\w+)*$");
+        Matcher m = p.matcher(url);
+        return m.matches();
+    }
 }
