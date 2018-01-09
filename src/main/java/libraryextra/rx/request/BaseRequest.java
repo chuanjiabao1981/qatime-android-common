@@ -29,8 +29,6 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.HostnameVerifier;
 
 import io.reactivex.Observable;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 import libraryextra.rx.HttpManager;
 import libraryextra.rx.api.ApiService;
 import libraryextra.rx.interceptor.HeadersInterceptor;
@@ -46,6 +44,7 @@ import retrofit2.CallAdapter;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * <p>描述：所有请求的基类</p>
@@ -374,6 +373,7 @@ public abstract class BaseRequest<R extends BaseRequest> {
         OkHttpClient.Builder okHttpClientBuilder = generateOkClient();
         final Retrofit.Builder retrofitBuilder = generateRetrofit();
         retrofitBuilder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());//增加RxJava2CallAdapterFactory
+        retrofitBuilder.addConverterFactory(GsonConverterFactory.create());
         okHttpClient = okHttpClientBuilder.build();
         retrofitBuilder.client(okHttpClient);
         retrofit = retrofitBuilder.build();

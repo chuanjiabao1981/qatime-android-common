@@ -53,9 +53,10 @@ public interface ApiService {
     Observable<ResponseBody> delete(@Url String url, @QueryMap Map<String, String> maps);
 
     @PUT()
-    Observable<ResponseBody> put(@Url String url, @QueryMap Map<String, String> maps);
+    @FormUrlEncoded
+    Observable<ResponseBody> put(@Url String url, @FieldMap Map<String, String> maps);
 
-    @POST()
+    @PUT()
     Observable<ResponseBody> putBody(@Url String url, @Body Object object);
 
     @Multipart

@@ -18,6 +18,8 @@ package libraryextra.rx.subscriber;
 
 import android.content.Context;
 
+import com.orhanobut.logger.Logger;
+
 import java.lang.ref.WeakReference;
 
 import io.reactivex.annotations.NonNull;
@@ -65,6 +67,7 @@ public abstract class BaseSubscriber<T> extends DisposableObserver<T> {
         if (e instanceof ApiException) {
 //            Logger.e("--> e instanceof ApiException err:" + e);
             onError((ApiException) e);
+            Logger.e("" + ((ApiException) e).getCode());
         } else {
 //            Logger.e("--> e !instanceof ApiException err:" + e);
             onError(ApiException.handleException(e));
